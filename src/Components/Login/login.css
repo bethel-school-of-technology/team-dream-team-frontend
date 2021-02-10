@@ -1,0 +1,5 @@
+/* Overide Styles for Login Compoent */
+
+.container {
+    background-color: rgb(223, 209, 212) !important;
+}
