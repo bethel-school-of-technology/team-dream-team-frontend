@@ -1,4 +1,4 @@
-// Directions 
+ 
 // copy all code from login.js and paste below (ps. dont delete these comments)
 // delete all code with in the div tags
 // -- replace Login with SignUp in all places in the code 
@@ -15,4 +15,18 @@
 // http://localhost:3000/signup
 
 
+import React from "react";
+import Form from "react-bootstrap/Form";
+import "./signup.css";
 
+class Signup extends React.Component {
+  render() {
+    return (
+      <div className="Signup">
+        
+      </div>
+    );
+  }
+}
+
+export default Login;
