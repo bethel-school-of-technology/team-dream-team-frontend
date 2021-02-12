@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './index.css';
 import Login from './Components/Login/Login';
+import Navi from './Components/Navigation/nav';
 
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +20,9 @@ ReactDOM.render(
      <Route exact path="/">
        <Login />
      </Route>
-
+     <Route path="/nav">
+       <Navi />
+     </Route>
    </div>
  </Router>,
   document.getElementById('root')
