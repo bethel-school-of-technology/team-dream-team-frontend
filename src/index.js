@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './index.css';
 import Login from './Components/Login/Login';
 import Navi from './Components/Navigation/nav';
+import ProfileImg from './Components/UserProfile/ProfileImg';
 
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,9 @@ ReactDOM.render(
      </Route>
      <Route path="/nav">
        <Navi />
+     </Route>
+     <Route path='/profile'>
+       <ProfileImg />
      </Route>
    </div>
  </Router>,
