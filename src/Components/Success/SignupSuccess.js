@@ -1,6 +1,8 @@
 import React from "react";
 import Alert from "react-bootstrap/Alert";
 import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Button from "react-bootstrap/Button";
 import "./signupsuccess.css";
 
 class SignupSuccess extends React.Component {
@@ -13,10 +15,15 @@ class SignupSuccess extends React.Component {
             <p>You have successfully created your ShareVerse profile.</p>
             <hr />
             <p className="mb-0">
-              Go ahead and login, and join the spread of Gods Word, together we
-              can make a differnce!
+              Go ahead and login below, and join the spread of Gods Word,
+              together we can make a differnce!
             </p>
           </Alert>
+          <div className="d-flex justify-content-center">
+            <Button>
+              <Nav.Link href="/login">Login To ShareVerse</Nav.Link>
+            </Button>
+          </div>
         </Container>
       </div>
     );
