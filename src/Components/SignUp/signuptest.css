@@ -1,0 +1,22 @@
+.hidden {
+    display: none;
+}
+
+.inline-errormsg {
+    color: red i !important;
+    font-size: 12px !important;
+  }
+
+.errormsg {
+      color: rgb(175, 9, 9);
+      background-color: rgba(255, 0, 0, 0.151);
+      display: block;
+      border: 1px solid red;
+      border-radius: 4px;
+      padding: 4px;  }
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #8a8f94 !important;
+    border-color: #72767a !important;
+    color: #484b4e !important;
+}
