@@ -18,6 +18,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import "./signup.css";
+import Button from "react-bootstrap/Button";
 
 class Signup extends React.Component {
   render() {
@@ -48,4 +49,4 @@ class Signup extends React.Component {
   }
 }
 
-export default Login;
+export default Signup;
