@@ -1,4 +1,4 @@
- 
+
 // copy all code from login.js and paste below (ps. dont delete these comments)
 // delete all code with in the div tags
 // -- replace Login with SignUp in all places in the code 
@@ -19,31 +19,52 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import "./signup.css";
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
 
 class Signup extends React.Component {
   render() {
     return (
       <div className="Signup">
-        <Form>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
+        <Container className="mt-5 ml-auto mr-auto">
+          <h1 className="text-center">
+            Welcome to
+            <span className="text-success"> ShareVerse</span>
+          </h1>
+          <Form.Text className="text-center">
+            <h2>Sign Up</h2></Form.Text>
+          <Form>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control type="text" placeholder="First Name" />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control type="text" placeholder="Last Name" />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" placeholder="Email" />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>User Name</Form.Label>
+              <Form.Control type="text" placeholder="User Name" />
+            </Form.Group>
 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
-  </Button>
-</Form>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+            <div className="d-flex justify-content-center mb-2">
+              <Button variant="primary" type="submit">
+                Create Account
+            </Button>
+            </div>
+            
+              <Nav.Link className="navSignup text-muted text-center"
+              href="/login">Already have an account</Nav.Link>
+          </Form>
+        </Container>
       </div>
     );
   }

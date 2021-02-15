@@ -9,7 +9,7 @@ import SignupTest from "./Components/SignUp/Signuptest";
 import SignupSuccess from './Components/Success/SignupSuccess';
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import SignUp from "./Components/SignUp/SignUp";
 // copy code from line 18-20 paste code in side div tags directly under line 20
 // on line 21 replace "exact path" with "path" (remove the word exact) and replace "/" with "signup"
 // import Signup componnet
@@ -27,8 +27,11 @@ ReactDOM.render(
       <Route path="/profile_img">
         <ProfileImg />
       </Route>
+      {/* <Route path="/register">
+        <SignUpTest />
+      </Route> */}
       <Route path="/register">
-        <SignupTest />
+        <SignUp />
       </Route>
       <Route path="/success">
         <SignupSuccess />
