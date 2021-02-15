@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import './index.css';
 import Login from './Components/Login/Login';
+import Signup from './Components/Signup/Signup';
 
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,9 +16,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
  <Router>
-   <div>
-     <Route exact path="/">
-       <Login />
+  
+       <div>
+     <Route path="Signup">
+       <Signup />
      </Route>
 
    </div>

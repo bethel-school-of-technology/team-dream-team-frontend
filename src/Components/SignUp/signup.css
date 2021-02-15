@@ -1,1 +1,5 @@
 /* Overide Styles for Signup Compoent */
+
+.container {
+    background-color: rgb(223, 209, 212) !important;
+}
