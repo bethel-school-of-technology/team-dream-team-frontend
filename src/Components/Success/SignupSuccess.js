@@ -20,7 +20,7 @@ class SignupSuccess extends React.Component {
             </p>
           </Alert>
           <div className="d-flex justify-content-center">
-            <Button>
+            <Button className="submitButton">
               <Nav.Link href="/login">Login To ShareVerse</Nav.Link>
             </Button>
           </div>

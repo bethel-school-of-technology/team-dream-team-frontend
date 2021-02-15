@@ -7,7 +7,6 @@ import Navi from "./Components/Navigation/nav";
 import ProfileImg from "./Components/UserProfile/ProfileImg";
 import SignupTest from "./Components/SignUp/Signuptest";
 import SignupSuccess from './Components/Success/SignupSuccess';
-
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
