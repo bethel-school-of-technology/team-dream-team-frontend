@@ -1,12 +1,19 @@
 /* Overide Styles for Signup Compoent */
 .text-muted {
-    color:#2b282b !important;
+  color: #2b282b !important;
 }
 
 .navSignup {
-font-size: 12px !important; padding: 0 !important
+  font-size: 12px !important;
+  padding: 0 !important;
+  color: #817d81 !important;
+  padding-bottom: 10px !important;
 }
 
 .navSignup:hover {
-    color: #008000 !important;
-    }
+  color: #008000 !important;
+}
+
+.signupText {
+    font-weight: 600 !important;
+}

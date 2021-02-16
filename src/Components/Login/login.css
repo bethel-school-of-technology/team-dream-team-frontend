@@ -4,14 +4,14 @@
     background-color: rgb(223, 209, 212) !important;
 } */
 
-.nav-link {
+.navLogin {
     font-size: smaller !important;
     margin-left: -15px !important;
 }
 
-.nav-link:hover {
+.navLogin:hover {
     color: #28a745 !important;
 }
-a.text-muted.nav-link {
+a.navLogin {
     margin-bottom: -6px !important;
 }
