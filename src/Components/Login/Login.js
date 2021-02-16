@@ -29,7 +29,9 @@ class Login extends React.Component {
             <Button variant="secondary" type="submit">
               Submit
             </Button>
-            <Nav.Link className="text-muted" variant="secondary ">
+            <Nav.Link className="navLogin text-muted d-flex justify-content-start" 
+                      variant="secondary"
+                      href="/register">
               New To ShareVerse?
             </Nav.Link>
             <Button variant="primary" type="submit" >
