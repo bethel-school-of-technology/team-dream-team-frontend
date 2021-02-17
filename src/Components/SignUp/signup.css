@@ -14,6 +14,18 @@
   color: #008000 !important;
 }
 
+/* for ALL disabled buttons  */
+.btn-primary.disabled, .btn-primary:disabled  {
+  background-color: #6b6d6b !important;
+  color:rgb(54, 48, 48) !important;
+  border-color:rgb(54, 48, 48) !important;
+}
+
+.signupSubmitBtn {
+  background-color: #008000 !important;
+  color:rgb(231, 225, 225) !important;
+}
+
 .signupText {
     font-weight: 600 !important;
 }

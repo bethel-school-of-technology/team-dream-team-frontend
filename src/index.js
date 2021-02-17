@@ -1,35 +1,33 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import Login from "./Components/Login/Login";
+// import Logintest from './Components/Login/Logintest';
 import Navi from "./Components/Navigation/nav";
 import ProfileImg from "./Components/UserProfile/ProfileImg";
-import SignupTest from "./Components/SignUp/Signuptest";
-import SignupSuccess from './Components/Success/SignupSuccess';
+// import SignupTest from "./Components/SignUp/Signuptest";
+import SignupSuccess from "./Components/Success/SignupSuccess";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignUp from "./Components/SignUp/SignUp";
-// copy code from line 18-20 paste code in side div tags directly under line 20
-// on line 21 replace "exact path" with "path" (remove the word exact) and replace "/" with "signup"
-// import Signup componnet
-// on line 22 replace "Login" with "Signup" - then go back to signup component to work on it
+import Home from "./Components/Profile/Home";
+
 
 ReactDOM.render(
   <Router>
     <div>
-      <Route exact path="/login">
-        <Login />
-      </Route>
+      <Switch>
+        <Route path={"/login"} component={Login} />
+        <Route path={"/home"} component={Home} />
+      </Switch>
+
       <Route path="/nav">
         <Navi />
       </Route>
       <Route path="/profile_img">
         <ProfileImg />
       </Route>
-      {/* <Route path="/register">
-        <SignUpTest />
-      </Route> */}
       <Route path="/register">
         <SignUp />
       </Route>
