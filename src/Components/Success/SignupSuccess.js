@@ -11,7 +11,7 @@ class SignupSuccess extends React.Component {
       <div className="SignupSuccess">
         <Container className="mt-5 ml-auto mr-auto">
           <Alert variant="success">
-            <Alert.Heading>Congradulations</Alert.Heading>
+            <Alert.Heading>Congratulations</Alert.Heading>
             <p>You have successfully created your ShareVerse profile.</p>
             <hr />
             <p className="mb-0">
