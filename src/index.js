@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./index.css";
 import Login from "./Components/Login/Login";
-// import Logintest from './Components/Login/Logintest';
+//import Logintest from './Components/Login/Logintest';
 import Navi from "./Components/Navigation/nav";
 import ProfileImg from "./Components/UserProfile/ProfileImg";
 // import SignupTest from "./Components/SignUp/Signuptest";
@@ -12,6 +12,9 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SignUp from "./Components/SignUp/SignUp";
 import Home from "./Components/Profile/Home";
+import PostVerse from "./Components/PostVerse/postverse";
+//import Login from "./Components/Login/Logintest";
+
 
 
 ReactDOM.render(
@@ -33,6 +36,9 @@ ReactDOM.render(
       </Route>
       <Route path="/success">
         <SignupSuccess />
+      </Route>
+      <Route path="/postverse">
+        <PostVerse/>
       </Route>
     </div>
   </Router>,
