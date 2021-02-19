@@ -36,9 +36,10 @@ class ProfileImg extends React.Component {
               </Card.Body>
             </Card>
             <div className="d-flex justify-content-center mt-3">
-              <Button variant="primary" type="submit">
-                Continue
+              <Button variant="success" type="Shared Verses">
+                Share Verse
               </Button>
+              <Button variant="success" type="Post a Verse"></Button>{' '}
             </div>
             <Card.Title className=" skip text-center p-3">Skip</Card.Title>
           </Form>
