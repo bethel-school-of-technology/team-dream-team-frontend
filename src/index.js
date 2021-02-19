@@ -1,33 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import './index.css';
-import Login from './Components/Login/Login';
-import Signup from './Components/Signup/Signup';
-
-import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// copy code from line 18-20 paste code in side div tags directly under line 20
-// on line 21 replace "exact path" with "path" (remove the word exact) and replace "/" with "signup"
-// import Signup componnet 
-// on line 22 replace "Login" with "Signup" - then go back to signup component to work on it
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./Components/Login/Login";
+import Navi from "./Components/Navigation/nav";
+import ProfileImg from "./Components/UserProfile/ProfileImg";
+import SignupSuccess from "./Components/Success/SignupSuccess";
+import reportWebVitals from "./reportWebVitals";
+import SignUp from "./Components/SignUp/SignUp";
+import Home from "./Components/Profile/Home";
+import PostVerse from "./Components/PostVerse/postverse";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 
 
 ReactDOM.render(
- <Router>
-  
-       <div>
-     <Route path="Signup">
-       <Signup />
-     </Route>
+  <Router>
+    <div>
+      <Switch>
+        <Route path={"/login"} component={Login} />
+        <Route path={"/home"} component={Home} />
+      </Switch>
 
-   </div>
- </Router>,
-  document.getElementById('root')
+      <Route path="/nav">
+        <Navi />
+      </Route>
+      <Route path="/profile_img">
+        <ProfileImg />
+      </Route>
+      <Route path="/register">
+        <SignUp />
+      </Route>
+      <Route path="/success">
+        <SignupSuccess />
+      </Route>
+      <Route path="/postverse">
+        <PostVerse/>
+      </Route>
+    </div>
+  </Router>,
+  document.getElementById("root")
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

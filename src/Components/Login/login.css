@@ -1,5 +1,47 @@
 /* Overide Styles for Login Compoent */
 
-.container {
+/* .container {
     background-color: rgb(223, 209, 212) !important;
+} */
+
+.navLogin {
+    font-size: smaller !important;
+    margin-left: -15px !important;
 }
+
+.navLogin:hover {
+    color: #28a745 !important;
+}
+a.navLogin {
+    margin-bottom: -6px !important;
+}
+
+.submitBtn {
+    /* background-color: #008000 !important; */
+    background-color: #008000 !important;
+    color:rgb(238, 231, 231) !important;}
+
+.submitBtn:hover{
+    background-color: rgb(2, 102, 2) !important;
+    color:rgb(238, 231, 231) !important;
+}
+
+/* for ALL disabled buttons  */
+.btn-secondary.disabled, .btn-secondary:disabled  {
+  background-color: #6b6d6b !important;
+  color:rgb(54, 48, 48) !important;
+  border-color:rgb(54, 48, 48) !important;
+}
+
+.inline-errormsg {
+    color: red i !important;
+    font-size: 12px !important;
+  }
+
+.errormsg {
+      color: rgb(175, 9, 9);
+      background-color: rgba(255, 0, 0, 0.151);
+      display: block;
+      border: 1px solid red;
+      border-radius: 4px;
+      padding: 4px;  }

@@ -1,0 +1,19 @@
+.submitButton {
+    background-color: #b9cebe !important;
+    width: 20rem !important;
+    border-color: #93a397 !important;
+}
+
+.submitButton:hover {
+    background-color: #a8bbac !important;
+    border-color: #155724 !important;
+}
+
+.navSuccess {
+    color: #155724 !important;
+    font-size: 1.2rem !important;
+}
+
+.navSuccess:hover {
+    color: #e2f1e5 !important;
+}
