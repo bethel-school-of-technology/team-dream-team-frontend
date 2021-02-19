@@ -11,7 +11,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: "",
       formErrors: { password: "" },     
       passwordValid: false,
@@ -126,9 +126,9 @@ class Login extends React.Component {
           >
             <FormErrors formErrors={this.state.formErrors} />
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Username:</Form.Label>
+              <Form.Label>Email:</Form.Label>
               <Form.Control
-                type="text"
+                type="email"
                 required
                 name="username"
                 defaultValue={this.state.username}

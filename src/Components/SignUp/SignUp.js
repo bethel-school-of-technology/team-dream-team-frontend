@@ -12,8 +12,10 @@ class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
       password: "",
+      email: "",
+      firstName: "",
+      lastName: "",
       //an object with the input field names as keys and any validation errors as their values
       formErrors: { email: "", password: "", firstName: "", lastName: "" },
       // the below props enable or disable the form submit button
@@ -109,7 +111,7 @@ class Signup extends React.Component {
     }).then((response) => {
       console.log(response.data);
       // on submission user is directed to success page
-      window.location.assign("/Success");
+      // window.location.assign("/Success");
     });
 
     console.log(this.state);
@@ -166,7 +168,7 @@ class Signup extends React.Component {
             </Form.Group>
             <div className={this.errorClass(this.state.formErrors.email)}>
               <Form.Group>
-                <Form.Label>Email</Form.Label>
+                <Form.Label>Email (Username)</Form.Label>
                 <Form.Control
                   type="email"
                   required
@@ -178,18 +180,7 @@ class Signup extends React.Component {
                 />
               </Form.Group>
             </div>
-            <Form.Group>
-              <Form.Label>User Name</Form.Label>
-              <Form.Control
-                type="username"
-                id="username"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleChange}
-                placeholder="Enter Username"
-              />
-            </Form.Group>
-            <Form.Group>
+               <Form.Group>
               <div className={this.errorClass(this.state.formErrors.password)}>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
