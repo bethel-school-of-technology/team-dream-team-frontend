@@ -11,7 +11,7 @@ class ProfileImg extends React.Component {
       <div className="profileimg">
         <Container className="mt-5 ml-auto mr-auto shadow">
           <h1 className="text-center">
-            Welcome
+            Welcome Back
             <span className="text-success"> Username</span>
           </h1>
           <Form>
@@ -24,7 +24,15 @@ class ProfileImg extends React.Component {
                   <Button variant="secondary" type="submit">
                     Upload Image
                   </Button>
+                  <Container>
+                        <Image src="holder.js/171x180" thumbnail />
+                  </Container>
                 </div>
+                <Form.Group>
+                  <Form.Text className="text-right">
+                    User Bio
+              </Form.Text>
+                </Form.Group>
               </Card.Body>
             </Card>
             <div className="d-flex justify-content-center mt-3">
@@ -35,7 +43,7 @@ class ProfileImg extends React.Component {
             <Card.Title className=" skip text-center p-3">Skip</Card.Title>
           </Form>
         </Container>
-      </div>
+      </div >
     );
   }
 }
