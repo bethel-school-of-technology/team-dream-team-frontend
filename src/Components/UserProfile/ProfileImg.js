@@ -4,6 +4,9 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import "./profileimg.css";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Image from "react-bootstrap/Image";
 
 class ProfileImg extends React.Component {
   render() {
@@ -25,23 +28,27 @@ class ProfileImg extends React.Component {
                     Upload Image
                   </Button>
                   <Container>
-                        <Image src="holder.js/171x180" thumbnail />
+                    <Row>
+                      <Col xs={6} md={4}>
+                        <Image src="holder.js/171x180" rounded />
+                      </Col>
+                      </Row>
                   </Container>
                 </div>
-                <Form.Group>
-                  <Form.Text className="text-right">
-                    User Bio
+                  <Form.Group>
+                    <Form.Text className="text-right">
+                      User Bio
               </Form.Text>
-                </Form.Group>
+                  </Form.Group>
               </Card.Body>
             </Card>
-            <div className="d-flex justify-content-center mt-3">
-              <Button variant="success" type="Shared Verses">
-                Share Verse
+              <div className="d-flex justify-content-center mt-3">
+                <Button variant="success" type="Shared Verses">
+                  Share Verse
               </Button>
-              <Button variant="success" type="Post a Verse"></Button>{' '}
-            </div>
-            <Card.Title className=" skip text-center p-3">Skip</Card.Title>
+                <Button variant="success" type="Post a Verse"></Button>{' '}
+              </div>
+              <Card.Title className=" skip text-center p-3">Skip</Card.Title>
           </Form>
         </Container>
       </div >
