@@ -130,7 +130,7 @@ class Login extends React.Component {
               <Form.Control
                 type="email"
                 required
-                name="username"
+                name="email"
                 defaultValue={this.state.username}
                 onChange={this.handleChange}
                 placeholder="Enter username or email"
