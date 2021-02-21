@@ -8,6 +8,7 @@ import SignupSuccess from "./Components/Success/SignupSuccess";
 import reportWebVitals from "./reportWebVitals";
 import SignUp from "./Components/SignUp/SignUp";
 import Home from "./Components/Profile/Home";
+import HomeTest from "./Components/Profile/HomeTest";
 import PostVerse from "./Components/PostVerse/postverse";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
@@ -19,6 +20,7 @@ ReactDOM.render(
       <Switch>
         <Route path={"/login"} component={Login} />
         <Route path={"/home"} component={Home} />
+        <Route path={"/home-test"} component={HomeTest} />
       </Switch>
 
       <Route path="/nav">

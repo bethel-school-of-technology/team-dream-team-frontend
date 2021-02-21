@@ -4,9 +4,6 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import "./profileimg.css";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Image from "react-bootstrap/Image";
 
 class ProfileImg extends React.Component {
   render() {
@@ -14,7 +11,7 @@ class ProfileImg extends React.Component {
       <div className="profileimg">
         <Container className="mt-5 ml-auto mr-auto shadow">
           <h1 className="text-center">
-            Welcome Back
+            Welcome
             <span className="text-success"> Username</span>
           </h1>
           <Form>
@@ -27,31 +24,18 @@ class ProfileImg extends React.Component {
                   <Button variant="secondary" type="submit">
                     Upload Image
                   </Button>
-                  <Container>
-                    <Row>
-                      <Col xs={6} md={4}>
-                        <Image src="holder.js/171x180" rounded />
-                      </Col>
-                      </Row>
-                  </Container>
                 </div>
-                  <Form.Group>
-                    <Form.Text className="text-right">
-                      User Bio
-              </Form.Text>
-                  </Form.Group>
               </Card.Body>
             </Card>
-              <div className="d-flex justify-content-center mt-3">
-                <Button variant="success" type="Shared Verses">
-                  Share Verse
+            <div className="d-flex justify-content-center mt-3">
+              <Button variant="primary" type="submit">
+                Continue
               </Button>
-                <Button variant="success" type="Post a Verse"></Button>{' '}
-              </div>
-              <Card.Title className=" skip text-center p-3">Skip</Card.Title>
+            </div>
+            <Card.Title className=" skip text-center p-3">Skip</Card.Title>
           </Form>
         </Container>
-      </div >
+      </div>
     );
   }
 }
