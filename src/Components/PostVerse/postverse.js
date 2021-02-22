@@ -15,6 +15,31 @@ class PostVerse extends React.Component {
 
   };
 
+  componentDidMount() {
+    if (!window.localStorage.getItem("token")) {
+      //redirect to Login
+      console.log("redirect to login");
+      this.props.history.push("/login");
+    }
+
+    if (window.localStorage.getItem("token")) {
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = window.localStorage.getItem("token");
+      axios
+        .post("http://localhost:5000/login")
+        .then((res) => {
+          console.log();
+          if (!res.data.status === "Login was successful" && 200) {
+            //window.location.href = window.location.toString() + "/home";
+            console.log("redirct to login");
+            this.props.history.push("/postverse");
+          }
+        })
+        .catch((res) => console.log(res));
+    }
+  }
+
   imageSelectHandler = (event) => {
     const reader = new FileReader();
     this.setState({
