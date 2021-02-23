@@ -1,16 +1,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./Components/Login/Login";
 import Navi from "./Components/Navigation/nav";
-import ProfileImg from "./Components/UserProfile/ProfileImg";
-import SignupSuccess from "./Components/Success/SignupSuccess";
 import SignUp from "./Components/SignUp/SignUp";
+import Login from "./Components/Login/Login";
+import SignupSuccess from "./Components/Success/SignupSuccess";
+import ProfileImg from "./Components/UploadProfileImg/ProfileImg";
+import CreateBio from "./Components/CreateBio/CreateBio";
 import Home from "./Components/Profile/Home";
 import HomeTest from "./Components/Profile/HomeTest";
 import PostVerse from "./Components/PostVerse/postverse";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
-import CreateBio from "./Components/CreateBio/CreateBio";
+
 
 function App() {
 
