@@ -2,6 +2,10 @@
     width: 137px !important;
 }
 
+.submitBtn {
+    width: 80px !important;
+}
+
 .skip {
     font-size: 13.3333px !important;
     color: #6c757d!important;

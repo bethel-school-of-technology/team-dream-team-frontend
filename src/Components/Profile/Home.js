@@ -17,7 +17,7 @@ class Home extends React.Component {
     if (!window.localStorage.getItem("token")) {
       //redirect to Login
       console.log("redirect to login");
-      this.props.history.push("/login");
+      this.props.history.push("/");
     }
 
     if (window.localStorage.getItem("token")) {
@@ -25,7 +25,7 @@ class Home extends React.Component {
         "Authorization"
       ] = window.localStorage.getItem("token");
       axios
-        .post("http://localhost:5000/login")
+        .post("http://localhost:5000/")
         .then((res) => {
           console.log();
           if (!res.data.status) {

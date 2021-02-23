@@ -25,7 +25,7 @@ class Login extends React.Component {
         "Authorization"
       ] = window.localStorage.getItem("token");
       axios
-        .post("http://localhost:5000/login/")
+        .post("http://localhost:5000/")
         .then((res) => {
           if (res.data.status) {
             this.props.history.push("/home");
@@ -86,7 +86,7 @@ class Login extends React.Component {
 
     axios
       .post(
-        "http://localhost:5000/login",
+        "http://localhost:5000/",
         {
           email: this.state.email,
           password: this.state.password,

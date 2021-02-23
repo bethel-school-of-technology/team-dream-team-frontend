@@ -19,7 +19,7 @@ function App() {
     <div className="App">
         <Router>
           <Switch>
-            <Route exact path={"/login"} component={Login} />
+            <Route exact path={"/"} component={Login} />
             <Route exact path={"/home"} component={Home} />
             <Route exact path={"/home-test"} component={HomeTest} />
             <Route exact path={"/nav"} component={Navi} />

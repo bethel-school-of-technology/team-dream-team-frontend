@@ -17,7 +17,7 @@ class CreateBio extends React.Component {
     if (!window.localStorage.getItem("token")) {
       //redirect to Login
       console.log("redirect to login");
-      this.props.history.push("/login");
+      this.props.history.push("/");
     }
 
     if (window.localStorage.getItem("token")) {
@@ -38,8 +38,8 @@ class CreateBio extends React.Component {
     }
   }
 
-  bioCreateHandler(){
-          axios
+  bioCreateHandler() {
+    axios
       .post("http://localhost:5000/createbio")
       .then((res) => {
         console.log(res);
@@ -47,15 +47,15 @@ class CreateBio extends React.Component {
       .catch((err) => {
         console.log(err);
       });
-  };
+  }
 
   render() {
     return (
       <div className="CreateBio">
         <Container className="mt-5 ml-auto mr-auto" id="bioinput">
           <h1 className="text-center">
-            <span className="text-success"> ShareVerse </span>
-            Bio Page
+            <span className="text-success"> Create </span>
+            Your Bio
           </h1>
 
           <Form
@@ -66,7 +66,9 @@ class CreateBio extends React.Component {
           >
             {/* <FormErrors formErrors={this.state.formErrors} /> */}
             <Form.Group controlId="formBasicbio">
-              <Form.Label>Enter your Bio</Form.Label>
+              <Form.Label>
+                Let us know what the Lord has done in your life:
+              </Form.Label>
               <Form.Control
                 type="text"
                 name="bio"
@@ -79,18 +81,18 @@ class CreateBio extends React.Component {
               variant="secondary"
               type="submit"
               className="submitBtn"
+              href="/profile_img"
               // disabled={!this.state.formValid}
               onClick={this.bioCreateHandler}
             >
               Submit
             </Button>
-            <Nav.Link
-              className="navLogin text-muted d-flex justify-content-start"
-              href="/"
-            >
+            <div className="skipBio text-muted d-flex justify-content-start mt-2">
               Skip this for now?
-            </Nav.Link>
-            <Button type="submit">Go to Profile</Button>
+            </div>
+            <Button type="submit" href="/home-test">
+              Go to Profile
+            </Button>
           </Form>
         </Container>
       </div>
