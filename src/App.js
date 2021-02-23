@@ -10,6 +10,7 @@ import HomeTest from "./Components/Profile/HomeTest";
 import PostVerse from "./Components/PostVerse/postverse";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import CreateBio from "./Components/CreateBio/CreateBio";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
             <Route exact path={"/register"} component={SignUp} />
             <Route exact path={"/success"} component={SignupSuccess} />
             <Route exact path={"/postverse"} component={PostVerse} />
+            <Route exact path={"/createbio"} component={CreateBio} />
           </Switch>
           </Router>
       </div>
