@@ -39,15 +39,15 @@ class HomeTest extends React.Component {
   render() {
     return (
       <div className="HomeTest">
-        <Container className="homeContainer shadow mt-2 ml-auto mr-auto">
+        <Container className="homeContainer shadow mt-2">
           <Row>
             <Col className="d-flex align-items-center">
-              <span className="spanHome"> Home (You are logged in)</span>
+              <span>Home (Your are logged in)</span>
             </Col>
-            <div className="d-flex align-items-center">
-              <Col className="col-sm d-flex align-items-center">
+            <Col className="">
+              <div className="d-flex align-items-center justify-content-end">
                 <Button
-                  className="logonBtn mb-2 mt-2"
+                  className="logoutBtn mb-2 mt-2"
                   onClick={(e) => {
                     window.localStorage.removeItem("token");
                     this.props.history.push("/login");
@@ -55,70 +55,57 @@ class HomeTest extends React.Component {
                 >
                   Logout
                 </Button>
-              </Col>
-            </div>
+              </div>
+            </Col>
           </Row>
           <Form>
-            <Card className="profileCard img-fluid">
+            <Card className="profileCard">
               <Card.Body>
                 <Card.Title className="text-center">
-                <div className="mb-2">
-            <Navi />
-          </div>
-                  <h1 className="text-center">
-                    Welcome Back
-                    <span className="text-success"> Username</span>
-                  </h1>{" "}
+                  <div>
+                    <Navi />
+                  </div>
+                  <h1>
+                    Welcome Back <span className="text-success">Username</span>
+                  </h1>
                 </Card.Title>
-                <div className="d-flex justify-content-center">
-                  <Container>
-                    <Row className="profileRow row-cols-12">
-                      <Col className="col-12 d-flex justify-content-center">
-                        <div className="placeholder text-center ">
-                          Place holder img
-                          {/* <Button
-                            className="uploadProBtn"
-                            variant="primary"
+
+                <Container>
+                  <Row>
+                    <Col className="d-flex justify-content-center col-12">
+                      <div className="placeholder text-center">
+                        Place Holder
+                      </div>
+                    </Col>
+                    <Col className="mt-n5">
+                      <div className="col-12 text-center">
+                        <Card.Text
+                          as="textarea"
+                          className="cardText text-center col-lg-10"
+                          placeholder="This is some text for the bio"
+                        ></Card.Text>
+                        <div className="mt-3">
+                          <Button
+                            className="shareVsBtn"
+                            variant="success"
                             type="submit"
                           >
-                            Upload Image
-                          </Button> */}
+                            Share Verse
+                          </Button>
                         </div>
-                      </Col>
-                      <Col className="mt-n5 d-flex justify-content-center">
-                        {/* <Image src="holder.js/171x180" rounded /> */}
-                        <div className=" col-12 text-center">
-                          <Card.Text
-                            as="textarea"
-                            className="cardText text-center col-lg-10"
-                            placeholder="This is my example Bio! I love Jesus!"
+                        <div className="mt-3">
+                          <Button
+                            className="postSubBtn mb-3"
+                            variant="success"
+                            type="submit"
                           >
-                            {/* {{ bio interpolation goes here}} */}
-                          </Card.Text>
-                          <div className="d-flex justify-content-center mt-3">
-                            <Button
-                              className="shareVsBtn"
-                              variant="success"
-                              type="submit"
-                            >
-                              Share Verse
-                            </Button>
-                          </div>
-                          <div className="d-flex justify-content-center mt-3">
-                            <Button
-                              className="postSubBtn mb-3"
-                              variant="success"
-                              type="submit"
-                              href="/postverse"
-                            >
-                              Post a Verse
-                            </Button>
-                          </div>
+                            Post a Verse
+                          </Button>
                         </div>
-                      </Col>
-                    </Row>
-                  </Container>
-                </div>
+                      </div>
+                    </Col>
+                  </Row>
+                </Container>
               </Card.Body>
             </Card>
           </Form>

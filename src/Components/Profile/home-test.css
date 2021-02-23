@@ -1,5 +1,6 @@
-.homeContainer {
+/* .homeContainer {
     border-radius: 2% !important;
+    padding-bottom: 15px;
 }
 
 .spanHome {
@@ -24,16 +25,10 @@
     background-color: rgb(2, 102, 2) !important
 }
 
-.logonBtn {
+.logoutBtn {
     width: 80px !important;
     height: 28px !important;
     padding-top: 0 !important;
-}
-
-.profileRow {
-    /* border: 1px rgba(85, 85, 119, 0.26) solid !important; */
-    display: flex !important;
-    justify-content: space-evenly !important;
 }
 
 .placeholder {
@@ -54,11 +49,13 @@
 
 .profileCard {
     width: 100% !important;
-    height: 100vh !important;
     background-color: #f9f9f9 !important;
     border-radius: 2% !important;
-}
+} */
 
+
+
+/* the below is for small devices to fit layout neatly - dont delete copy and past on home.css when done */
 /* X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
     .placeholder {
@@ -74,27 +71,3 @@
         font-size: 25px !important;
     }
  }
-
-/* Small devices (landscape phones, less than 768px) */
-@media (max-width: 767.98px) { 
-        .placeholder {
-        width: 75vw;
-    }
- }
-
-/* Medium devices (tablets, less than 992px) */
-@media (max-width: 991.98px) { 
-    .placeholder {
-        width: 80vw;
-    }
- }
-
- @media (min-width: 768px) and (max-width: 1999.98px) {
-    .cardText {
-        background-color: rgb(248, 246, 244) !important;
-        width: 60vw !important;
-    }
-  }
-
-
-

@@ -7,37 +7,36 @@ import Nav from "react-bootstrap/Nav";
 import "./CreateBio.css";
 import axios from "axios";
 
-
 class CreateBio extends React.Component {
   // state = {
   //        bioText: ""
 
   // };
 
-  // componentDidMount() {
-  //   if (!window.localStorage.getItem("token")) {
-  //     //redirect to Login
-  //     console.log("redirect to login");
-  //     this.props.history.push("/login");
-  //   }
+  componentDidMount() {
+    if (!window.localStorage.getItem("token")) {
+      //redirect to Login
+      console.log("redirect to login");
+      this.props.history.push("/login");
+    }
 
-  //   if (window.localStorage.getItem("token")) {
-  //     axios.defaults.headers.common[
-  //       "Authorization"
-  //     ] = window.localStorage.getItem("token");
-  //     axios
-  //       .post("http://localhost:5000/createbio")
-  //       .then((res) => {
-  //         console.log();
-  //         if (!res.data.status === "Login was successful" && 200) {
-  //           //window.location.href = window.location.toString() + "/home";
-  //           console.log("redirct to login");
-  //           this.props.history.push("/createbio");
-  //         }
-  //       })
-  //       .catch((res) => console.log(res));
-  //   }
-  // }
+    if (window.localStorage.getItem("token")) {
+      axios.defaults.headers.common[
+        "Authorization"
+      ] = window.localStorage.getItem("token");
+      axios
+        .post("http://localhost:5000/createbio")
+        .then((res) => {
+          console.log();
+          if (!res.data.status === "Login was successful" && 200) {
+            //window.location.href = window.location.toString() + "/home";
+            console.log("redirct to login");
+            this.props.history.push("/createbio");
+          }
+        })
+        .catch((res) => console.log(res));
+    }
+  }
 
   bioCreateHandler(){
           axios
@@ -49,7 +48,6 @@ class CreateBio extends React.Component {
         console.log(err);
       });
   };
-
 
   render() {
     return (
@@ -64,7 +62,7 @@ class CreateBio extends React.Component {
             className="shadow p-3 mb-5 bg-white rounded"
             id="bioinput-form"
             // onSubmit={this.bioCreateHandler.bind(this)}
-           // method="POST"
+            // method="POST"
           >
             {/* <FormErrors formErrors={this.state.formErrors} /> */}
             <Form.Group controlId="formBasicbio">
@@ -81,25 +79,18 @@ class CreateBio extends React.Component {
               variant="secondary"
               type="submit"
               className="submitBtn"
-            // disabled={!this.state.formValid}
+              // disabled={!this.state.formValid}
               onClick={this.bioCreateHandler}
             >
               Submit
             </Button>
             <Nav.Link
               className="navLogin text-muted d-flex justify-content-start"
-             
               href="/"
             >
               Skip this for now?
             </Nav.Link>
-            <Button
-              
-              type="submit"
-             
-            >
-              Go to Profile
-            </Button>
+            <Button type="submit">Go to Profile</Button>
           </Form>
         </Container>
       </div>
@@ -108,4 +99,3 @@ class CreateBio extends React.Component {
 }
 
 export default CreateBio;
-
