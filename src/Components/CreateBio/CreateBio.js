@@ -9,10 +9,10 @@ import axios from "axios";
 
 
 class CreateBio extends React.Component {
-  state = {
-         bioText: ""
+  // state = {
+  //        bioText: ""
 
-  };
+  // };
 
   // componentDidMount() {
   //   if (!window.localStorage.getItem("token")) {
@@ -39,7 +39,7 @@ class CreateBio extends React.Component {
   //   }
   // }
 
-  bioCreateHandler = () => {
+  bioCreateHandler(){
           axios
       .post("http://localhost:5000/createbio")
       .then((res) => {
@@ -64,7 +64,7 @@ class CreateBio extends React.Component {
             className="shadow p-3 mb-5 bg-white rounded"
             id="bioinput-form"
             // onSubmit={this.bioCreateHandler.bind(this)}
-            method="POST"
+           // method="POST"
           >
             {/* <FormErrors formErrors={this.state.formErrors} /> */}
             <Form.Group controlId="formBasicbio">
@@ -82,19 +82,19 @@ class CreateBio extends React.Component {
               type="submit"
               className="submitBtn"
             // disabled={!this.state.formValid}
-              onSubmit={this.bioCreateHandler}
+              onClick={this.bioCreateHandler}
             >
               Submit
             </Button>
             <Nav.Link
               className="navLogin text-muted d-flex justify-content-start"
-              variant="secondary"
-              href="/home"
+             
+              href="/"
             >
               Skip this for now?
             </Nav.Link>
             <Button
-              variant="primary"
+              
               type="submit"
              
             >
