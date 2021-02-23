@@ -90,7 +90,7 @@ class HomeTest extends React.Component {
                             variant="success"
                             type="submit"
                           >
-                            Share Verse
+                            Shared Verse
                           </Button>
                         </div>
                         <div className="mt-3">
