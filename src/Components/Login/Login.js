@@ -100,7 +100,7 @@ class Login extends React.Component {
         if (resStatus === 200) {
         window.localStorage.setItem("token", res.data.token);
         // return <Redirect to="/home" />;
-        this.props.history.push("/home");
+        this.props.history.push("/createbio");
         } else {
           alert("Your Password or Username is incorrect!");
         }
