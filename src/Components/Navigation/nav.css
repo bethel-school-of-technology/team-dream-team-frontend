@@ -17,3 +17,12 @@
 .btn-primary:hover{
   background-color: rgb(2, 102, 2) !important;
 }
+
+.navBar {
+  background-color: #efeeee !important;
+  justify-content: start !important;
+}
+
+.navbar-light .navbar-toggler {
+  background-color: #dcd8d8 !important;
+}

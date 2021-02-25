@@ -1,0 +1,73 @@
+/* .homeContainer {
+    border-radius: 2% !important;
+    padding-bottom: 15px;
+}
+
+.spanHome {
+    font-size: 15px !important;
+    font-weight: 200 !important;
+}
+
+.uploadProBtn {
+    width: 200px !important;
+    margin-top: 100px !important;
+}
+
+.postSubBtn,
+.shareVsBtn {
+    width: 200px !important;
+    background-color: green !important;
+    border-color: #015f01 !important;
+}
+
+.postSubBtn:hover,
+.shareVsBtn:hover {
+    background-color: rgb(2, 102, 2) !important
+}
+
+.logoutBtn {
+    width: 80px !important;
+    height: 28px !important;
+    padding-top: 0 !important;
+}
+
+.placeholder {
+    width: 200vw;
+    height: 300px;
+    border: 2px #0080008a solid;
+    padding-top: 100px;
+    background-color: #efeeee;
+}
+
+.cardText {
+    background-color: rgb(255, 254, 253) !important;
+    width: 60vw;
+    height: 80px;
+    border: 2px #00800052 solid;
+    padding-top: 12px;
+}
+
+.profileCard {
+    width: 100% !important;
+    background-color: #f9f9f9 !important;
+    border-radius: 2% !important;
+} */
+
+
+
+/* the below is for small devices to fit layout neatly - dont delete copy and past on home.css when done */
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .placeholder {
+        width: 75vw !important;
+        height: 55vw !important;
+        margin-bottom: 10px !important;
+    }
+    .placeholderBio {
+        width: 62vw !important;
+        height:17vw !important;
+    }
+    h1 {
+        font-size: 25px !important;
+    }
+ }

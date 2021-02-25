@@ -3,21 +3,14 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import "./home.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navi from "../Navigation/nav";
-import Image from "react-bootstrap/Image";
+// import Image from "react-bootstrap/Image";
 import axios from "axios";
-<<<<<<< HEAD
-import Nav from "react-bootstrap/Nav";
-import "./login.css";
-=======
->>>>>>> 658279d6c3bb79f731177f1e276a3f053e22c9e6
+import "./home-test.css";
 
-
-// ------below code is for login and out functionality--------------------
-class Home extends React.Component {
+class HomeTest extends React.Component {
   componentDidMount() {
     if (!window.localStorage.getItem("token")) {
       //redirect to Login
@@ -42,19 +35,16 @@ class Home extends React.Component {
         .catch((res) => console.log(res));
     }
   }
-  // ------end login/logout functionality-----------------------------------
-
-
 
   render() {
     return (
-      <div className="home">
-        <Container className="">
+      <div className="HomeTest">
+        <Container className="homeContainer shadow mt-2">
           <Row>
-            <Col>
-              <Span> Home (You are logged in) </Span>
+            <Col className="d-flex align-items-center">
+              <span>Home (Your are logged in)</span>
             </Col>
-            <Col>
+            <Col className="">
               <div className="d-flex align-items-center justify-content-end">
                 <Button
                   className="logoutBtn mb-2 mt-2"
@@ -69,25 +59,41 @@ class Home extends React.Component {
             </Col>
           </Row>
           <Form>
-            <Card>
+            <Card className="profileCard">
               <Card.Body>
-                <Card.Title>
-                  <div> Navi </div>
-                  <h1>Welcome Back <span>Username</span></h1>
-                  <Container>
-                    <Row>
-                      <Col>
-                        <div>Place Holder Image</div>
-                      </Col>
-                      <Col>
-                        <Card.Text as="textarea" placeholder="Text area for Bio"></Card.Text>
-                        <Button
-                            className="postSubBtn mb-3"
+                <Card.Title className="text-center">
+                  <div>
+                    <Navi />
+                  </div>
+                  <h1>
+                    Welcome Back <span className="text-success">Username</span>
+                  </h1>
+                </Card.Title>
+
+                <Container>
+                  <Row>
+                    <Col className="d-flex justify-content-center col-12">
+                      <div className="placeholder text-center">
+                        Place Holder
+                      </div>
+                    </Col>
+                    <Col className="mt-n5">
+                      <div className="col-12 text-center">
+                        <Card.Text
+                          as="textarea"
+                          className="cardText text-center col-lg-10"
+                          placeholder="This is some text for the bio"
+                        ></Card.Text>
+                        <div className="mt-3">
+                          <Button
+                            className="shareVsBtn"
                             variant="success"
                             type="submit"
                           >
-                            Post a Verse
+                            Shared Verse
                           </Button>
+                        </div>
+                        <div className="mt-3">
                           <Button
                             className="postSubBtn mb-3"
                             variant="success"
@@ -95,10 +101,11 @@ class Home extends React.Component {
                           >
                             Post a Verse
                           </Button>
-                      </Col>
-                    </Row>
-                  </Container>
-                </Card.Title>
+                        </div>
+                      </div>
+                    </Col>
+                  </Row>
+                </Container>
               </Card.Body>
             </Card>
           </Form>
@@ -108,4 +115,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default HomeTest;

@@ -25,7 +25,7 @@ class Login extends React.Component {
         "Authorization"
       ] = window.localStorage.getItem("token");
       axios
-        .post("http://localhost:5000/login")
+        .post("http://localhost:5000/")
         .then((res) => {
           if (res.data.status) {
             this.props.history.push("/home");
@@ -86,9 +86,9 @@ class Login extends React.Component {
 
     axios
       .post(
-        "http://localhost:5000/login",
+        "http://localhost:5000/",
         {
-          username: this.state.username,
+          email: this.state.email,
           password: this.state.password,
         }
         // { withCredentials: true }
@@ -100,7 +100,7 @@ class Login extends React.Component {
         if (resStatus === 200) {
         window.localStorage.setItem("token", res.data.token);
         // return <Redirect to="/home" />;
-        this.props.history.push("/home");
+        this.props.history.push("/createbio");
         } else {
           alert("Your Password or Username is incorrect!");
         }
@@ -130,7 +130,7 @@ class Login extends React.Component {
               <Form.Control
                 type="email"
                 required
-                name="username"
+                name="email"
                 defaultValue={this.state.username}
                 onChange={this.handleChange}
                 placeholder="Enter username or email"
