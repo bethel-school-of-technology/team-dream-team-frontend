@@ -3,8 +3,8 @@ import React from "react";
 // import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
-// import Nav from "react-bootstrap/Nav";
-// import "./login.css";
+import Nav from "react-bootstrap/Nav";
+import "./login.css";
 
 class Home extends React.Component {
 
@@ -49,7 +49,7 @@ class Home extends React.Component {
         </button>
         </Container>
       </div>
-    );
+          );
   }
 }
 
