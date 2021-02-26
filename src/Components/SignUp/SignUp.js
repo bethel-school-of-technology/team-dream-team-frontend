@@ -30,14 +30,14 @@ class Signup extends React.Component {
   handleUserInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    // setState method takes a callback function as a second argument, 
+    // setState method takes a callback function as a second argument,
     // so we pass a validation function to call it after the user types in the field
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
   };
 
-  // fucntion from line 34 is defined here 
+  // fucntion from line 34 is defined here
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let firstNameValid = this.state.firstNameValid;
@@ -54,12 +54,12 @@ class Signup extends React.Component {
         lastNameValid = value.length >= 3 && value.match(/^[A-Za-z]+$/);
         fieldValidationErrors.lastName = lastNameValid ? "" : " is invalid!";
         break;
-        //For the email field, we check it against a regular expression to see if it’s an email. 
+      //For the email field, we check it against a regular expression to see if it’s an email.
       case "email":
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         fieldValidationErrors.email = emailValid ? "" : " is invalid!";
         break;
-        //For the password field, we check if the length is a minimum of 6 characters or not.
+      //For the password field, we check if the length is a minimum of 6 characters or not.
       case "password":
         passwordValid = value.length >= 6;
         fieldValidationErrors.password = passwordValid ? "" : " is too short!";
@@ -69,7 +69,7 @@ class Signup extends React.Component {
     }
 
     // after the logic of checking to see if inputs are vaild, then
-    // we call setState to update the formErrors and the field validity 
+    // we call setState to update the formErrors and the field validity
     // and we pass the validateForm callback to set the value of validtdateForm (line 84).
     this.setState(
       {
@@ -83,7 +83,7 @@ class Signup extends React.Component {
     );
   }
 
-  //sets the value of validateForm function 
+  //sets the value of validateForm function
   validateForm() {
     this.setState({
       formValid:
@@ -120,30 +120,6 @@ class Signup extends React.Component {
   render() {
     return (
       <div className="Signup">
-
- {/* Billees changes before pull----------------------------------------------
-         <Form>
-           <Form.Group controlId="formBasicEmail">
-             <Form.Label>Email address</Form.Label>
-             <Form.Control type="email" placeholder="Enter email" />
-             <Form.Text className="text-muted">
-               We'll never share your email with anyone else.
-           </Form.Text>
-           </Form.Group>
-
-           <Form.Group controlId="formBasicPassword">
-             <Form.Label>Password</Form.Label>
-             <Form.Control type="password" placeholder="Password" />
-           </Form.Group>
-           <Form.Group controlId="formBasicCheckbox">
-             <Form.Check type="checkbox" label="Check me out" />
-           </Form.Group>
-          <Button variant="primary" type="submit">
-             Submit
-   </Button>
-        </Form>
---------------------------------------------------------------------------- */}
-      
         <Container className="shadow mt-5 ml-auto mr-auto">
           <h1 className="text-center">
             Welcome to
@@ -204,7 +180,7 @@ class Signup extends React.Component {
                 />
               </Form.Group>
             </div>
-               <Form.Group>
+            <Form.Group>
               <div className={this.errorClass(this.state.formErrors.password)}>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
@@ -222,7 +198,7 @@ class Signup extends React.Component {
                 variant="primary"
                 type="submit"
                 className="signupSubmitBtn"
-                // set the disabled attribute of the submit 
+                // set the disabled attribute of the submit
                 // button based on the value of the formValid state property.
                 disabled={!this.state.formValid}
               >
@@ -234,7 +210,7 @@ class Signup extends React.Component {
             </Form.Text>
             <Nav.Link
               className="navSignup text-muted text-center"
-              href="/login"
+              href="/"
             >
               Click Here to Login
             </Nav.Link>
@@ -250,3 +226,25 @@ class Signup extends React.Component {
 
 export default Signup;
 
+ /* Billees changes before pull----------------------------------------------
+         <Form>
+           <Form.Group controlId="formBasicEmail">
+             <Form.Label>Email address</Form.Label>
+             <Form.Control type="email" placeholder="Enter email" />
+             <Form.Text className="text-muted">
+               We'll never share your email with anyone else.
+           </Form.Text>
+           </Form.Group>
+
+           <Form.Group controlId="formBasicPassword">
+             <Form.Label>Password</Form.Label>
+             <Form.Control type="password" placeholder="Password" />
+           </Form.Group>
+           <Form.Group controlId="formBasicCheckbox">
+             <Form.Check type="checkbox" label="Check me out" />
+           </Form.Group>
+          <Button variant="primary" type="submit">
+             Submit
+   </Button>
+        </Form>
+--------------------------------------------------------------------------- */

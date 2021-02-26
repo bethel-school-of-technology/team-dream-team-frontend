@@ -3,7 +3,6 @@
     padding: 0;
 }
 
- 
 #prev{
     display: flex;
     align-items: center;
@@ -34,3 +33,7 @@
 
  /* .card-img-overlay {
 background-color: red ;}  */
+
+.saveImageBtn {
+    width: 200px !important;
+}
