@@ -198,6 +198,7 @@ class Signup extends React.Component {
                 variant="primary"
                 type="submit"
                 className="signupSubmitBtn"
+                href="success"
                 // set the disabled attribute of the submit
                 // button based on the value of the formValid state property.
                 disabled={!this.state.formValid}

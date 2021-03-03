@@ -16,6 +16,11 @@
     justify-content: center;
 
 }
+
+.chooseBtn {
+    width: 175px !important;
+}
+
 .previewholder{
  width: 300px;
  height: 300px;
@@ -35,5 +40,21 @@
 background-color: red ;}  */
 
 .saveImageBtn {
-    width: 200px !important;
+    width: 175px !important;
+}
+
+.chooseImgBtn {
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.hdnicewallpapers.com%2FWalls%2FBig%2FMountain%2FMountains_and_River_Wallpapers.jpg&f=1&nofb=1");
+    background-size: 100% 100%!important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 500px !important;
+    max-width: 100% !important;
+    /* word-wrap: break-word; */
+    background-color: #fff !important;
+    background-clip: border-box !important;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem !important;
 }

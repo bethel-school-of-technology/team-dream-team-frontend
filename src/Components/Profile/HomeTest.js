@@ -98,6 +98,7 @@ class HomeTest extends React.Component {
                             className="postSubBtn mb-3"
                             variant="success"
                             type="submit"
+                            href="/postverse"
                           >
                             Post a Verse
                           </Button>

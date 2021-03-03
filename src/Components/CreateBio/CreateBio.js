@@ -2,7 +2,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-// import Nav from "react-bootstrap/Nav";
+import Nav from "react-bootstrap/Nav";
 //import { FormErrors } from "./FormErrors";
 import "./CreateBio.css";
 import axios from "axios";
@@ -87,12 +87,13 @@ class CreateBio extends React.Component {
             >
               Submit
             </Button>
-            <div className="skipBio text-muted d-flex justify-content-start mt-2">
+            <Nav.Link className="skipBio text-muted d-flex justify-content-start mt-2" 
+                 href="/profile_img">
               Skip this for now?
-            </div>
-            <Button type="submit" href="/home-test">
+            </Nav.Link>
+            {/* <Button type="submit" href="/home-test">
               Go to Profile
-            </Button>
+            </Button> */}
           </Form>
         </Container>
       </div>

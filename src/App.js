@@ -10,6 +10,14 @@ import Home from "./Components/Profile/Home";
 import HomeTest from "./Components/Profile/HomeTest";
 import PostVerse from "./Components/PostVerse/postverse";
 import GetPostVerse from "./Components/PostVerse/getPostVerse";
+import ChooseAnImg from "./Components/Gallery/ChooseAnImg";
+import GlobalPost from "./Components/Global/GlobalPost";
+import FindGalImgs from "./Components/Global/FindGalIMgs";
+import TestShareWallComp from "./Components/ShareWall/TestShareWallComp";
+
+import ImgA from "./Components/GalleryComps/ImgA";
+import ImgB from "./Components/GalleryComps/ImgB";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
@@ -28,10 +36,18 @@ function App() {
             <Route exact path={"/success"} component={SignupSuccess} />
             <Route exact path={"/createbio"} component={CreateBio} />
             <Route exact path={"/profile_img"} component={ProfileImg} />
+            <Route exact path={"/chooseimg"} component={ChooseAnImg} />
             <Route exact path={"/postverse"} component={PostVerse} />
             <Route exact path={"/getimage/:id"} component={GetPostVerse} />
             <Route exact path={"/create"} component={PostVerse} />
             <Route path={"/getverse/:id"} component={GetPostVerse} />
+            <Route path={"/testsharewall"} component={TestShareWallComp} />
+
+            <Route path={"/globalpost"} component={GlobalPost} />
+            <Route path={"/search"} component={FindGalImgs} />
+            
+            <Route path={"/imga"} component={ImgA} /> 
+            <Route path={"/imgb"} component={ImgB} /> 
 
 
           </Switch>
