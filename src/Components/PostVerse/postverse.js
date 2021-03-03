@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
 
 import ImageUploading from "react-images-uploading";
@@ -11,17 +11,16 @@ import "./postverse.css";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 
-
-
 const PostVerse = ({ match }) => {
   const [imagePreview, setImagePreview] = useState(
     "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.hdnicewallpapers.com%2FWalls%2FBig%2FMountain%2FMountains_and_River_Wallpapers.jpg&f=1&nofb=1"
   );
   const [body, setBody] = useState("");
   const [title, setTitle] = useState("");
+  const [id, setId] = useState("");
   const [images, setImages] = React.useState([]);
+  // const maxFileSize = 6700;
   const history = useHistory();
-  const [id, setId] = useState("")
 
   const onChange = (imageList, addUpdateIndex) => {
     // data for submit
@@ -42,7 +41,7 @@ const PostVerse = ({ match }) => {
       },
     }).then((response) => {
       console.log(response.data);
-      setId(response.data.data._id)
+      setId(response.data.data._id); // grabs id from inputs
     });
   }
 
@@ -61,11 +60,11 @@ const PostVerse = ({ match }) => {
       console.log("redirect to login");
       history.push("/");
     }
-    if (window.localStorage.getItem("token")) { 
+    if (window.localStorage.getItem("token")) {
       const isMyTokenExpired = isExpired(window.localStorage.getItem("token"));
       console.log(isMyTokenExpired);
 
-      if(isMyTokenExpired) {
+      if (isMyTokenExpired) {
         console.log("redirect to login");
         history.push("/");
       }
@@ -74,7 +73,7 @@ const PostVerse = ({ match }) => {
       console.log(myDecodedToken);
     }
   });
-// },[]);
+  // },[]);
 
   return (
     <div className="postverse">
@@ -83,6 +82,8 @@ const PostVerse = ({ match }) => {
           Post to
           <span className="text-success"> ShareVerse</span>
         </h1>
+        <h3 className="text-center text-muted">What has the Lord placed on your heart today?</h3>
+
         <Form className="shadow p-3 mb-5 bg-white rounded">
           <Form.Group controlId="formBasicVerse">
             <Form.Label>
@@ -111,61 +112,53 @@ const PostVerse = ({ match }) => {
               required
             />
           </Form.Group>
+
+          {/* IMG uplaod function ----------------------------------------------- */}
           <ImageUploading
             value={images}
             onChange={onChange}
             dataURLKey="data_url"
+            // maxFileSize={maxFileSize}
           >
-            {/* {({ imageList, onImageUpload, errors }) =>
-              errors && imageList && onImageUpload  (
-                <div>
-                  {errors.acceptType && (
-                    <span>Your selected file type is not allow</span>
-                  )}
-                  {errors.maxFileSize && (
-                    <span>Selected file size exceed maxFileSize</span>
-                  )}
-                  {errors.resolution && (
-                    <span>
-                      Selected file is not match your desired resolution
-                    </span>
-                  )}
-                </div>
-              )
-            } */}
-
-        {/* {({ imageList, onImageUpload, isDragging, dragProps, errors }) => errors ( */}
-            {({ imageList, onImageUpload, isDragging, dragProps,  }) =>  (
-              // write your building UI
+            {({ imageList, onImageUpload, isDragging, dragProps }) => (
               <div className="upload__image-wrapper">
-                  {/* {errors.acceptType && (
-                    <span>Your selected file type is not allow</span>
-                  )}
-                  {errors.maxFileSize && (
-                    <span>Selected file size exceed maxFileSize</span>
-                  )}
-                  {errors.resolution && (
-                    <span>
-                      Selected file is not match your desired resolution
-                    </span>
-                  )} */}
                 <Button
+                  className="uploadBtn"
                   style={isDragging ? { color: "red" } : null}
                   type="button"
                   onClick={onImageUpload}
                   {...dragProps}
                 >
-                  Click or Drop here
+                  Upload Image
                 </Button>
+                <div>
+                  <Button className="chooseBtn mt-2 mb-3" href="chooseimg">
+                    Choose from Gallery
+                  </Button>
+                </div>
               </div>
             )}
           </ImageUploading>
+          {/* Drag/Drop function ------------------------------------------- */}
+          {({ imageList, dragProps, isDragging }) => (
+            <div {...dragProps}>
+              {isDragging ? "Drop here please" : "Upload space"}
+            </div>
+          )}
+          {/* Error vaildation -----------------------------------------------*/}
+          {/* {({ errors }) => (
+            errors(maxFileSize(6700)) && 
+            <div>
+              {errors.maxFileSize && <span>Selected file size exceed maxFileSize</span>}
+            </div>
+          )} */}
+          {/* END IMG uplaod function ---------------------------------------------------------- */}
 
           <div className="">
             <Card className="bg-dark text-white">
               {/* <Card.Img src={imagePreview} alt="Card image" /> */}
               {images.map((image, index) => (
-                <div key={index} className="image-item">
+                <div key={index}>
                   <Card.Img src={image.data_url} alt="" />
                 </div>
               ))}
@@ -182,19 +175,19 @@ const PostVerse = ({ match }) => {
                 type="submit"
                 onClick={makeRequest}
               >
-                Save My Creation!
+                Save Post!
               </Button>
               <div>
                 <Button
+                  className=" saveImageBtn mt-3"
                   href={`http://localhost:3000/getverse/${id}`}
                 >
-                  go!
+                  View Verse
                 </Button>
               </div>
             </div>
           </div>
         </Form>
-        <div></div>
       </Container>
     </div>
   );

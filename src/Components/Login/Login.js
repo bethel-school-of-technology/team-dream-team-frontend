@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import { FormErrors } from "../SignUp/FormErrors";
 import axios from "axios";
-import {useHistory} from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
 import "./login.css";
 
@@ -174,14 +173,8 @@ class Login extends React.Component {
               variant="secondary"
               href="/register"
             >
-              New To ShareVerse?
+              New To ShareVerse, Signup Here?
             </Nav.Link>
-            <Button
-              variant="primary"
-              type="submit"
-            >
-              Sign Up
-            </Button>
           </Form>
         </Container>
       </div>
