@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Navi from "../Navigation/nav";
+import Navi from "../../Navigation/nav";
 // import Image from "react-bootstrap/Image";
 import axios from "axios";
 import "./home-test.css";

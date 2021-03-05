@@ -4,16 +4,14 @@ import { isExpired, decodeToken } from "react-jwt";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 // import Button from "react-bootstrap/Button";
-import "./postverse.css";
+// import "./postverse.css";
 import axios from "axios";
 
 const GetPostVerse = ({ match }) => {
-  const [imagePreview, setImagePreview] = useState(
-    "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.hdnicewallpapers.com%2FWalls%2FBig%2FMountain%2FMountains_and_River_Wallpapers.jpg&f=1&nofb=1"
-  );
   const [body, setBody] = useState("");
   const [title, setTitle] = useState("");
   const history = useHistory();
+  const [imagePreview, setImagePreview] = useState("");
 
   const loadData = async () => {
     try {
@@ -21,6 +19,7 @@ const GetPostVerse = ({ match }) => {
         `http://localhost:5000/getverse/${match.params.id}`
       );
       setTitle(res.data.data.title);
+
       // console.log(res.data);
       // console.log(res.data.data.title);
       // console.log(match.params.id);
@@ -29,6 +28,23 @@ const GetPostVerse = ({ match }) => {
       console.log(error);
     }
   };
+
+  const loadimg  = async () => {
+    try {
+      let res = await axios.get(
+        `http://localhost:5000/getimage/${match.params.id}`
+      );
+
+      console.log(res.data.data.newImage);
+      setImagePreview(res.data.data.newImage);
+      // console.log(res.data.data.title);
+      // console.log(match.params.id);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   useEffect(() => {
     // console.log("use effect working!");
@@ -50,6 +66,7 @@ const GetPostVerse = ({ match }) => {
       console.log(myDecodedToken);
     }
     loadData()
+    loadimg()
   });
 // },[]);
 

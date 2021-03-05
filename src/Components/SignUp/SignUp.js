@@ -4,7 +4,7 @@ import "./signup.css";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import { FormErrors } from "./FormErrors";
+import { FormErrors } from "./formerros/FormErrors";
 import axios from "axios";
 
 //addes properties to the initial state

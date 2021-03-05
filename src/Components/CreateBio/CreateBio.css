@@ -14,3 +14,7 @@
 .proContainer {
    height: 480px !important;
 }
+
+.bioInput {
+  height: 150px !important;
+}

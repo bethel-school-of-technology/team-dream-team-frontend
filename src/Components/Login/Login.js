@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import { FormErrors } from "../SignUp/FormErrors";
+import { FormErrors } from "../SignUp/formerros/FormErrors";
 import axios from "axios";
 import { isExpired, decodeToken } from "react-jwt";
 import "./login.css";
