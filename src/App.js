@@ -4,19 +4,18 @@ import Navi from "./Components/Navigation/nav";
 import SignUp from "./Components/SignUp/SignUp";
 import Login from "./Components/Login/Login";
 import SignupSuccess from "./Components/Success/SignupSuccess";
-import ProfileImg from "./Components/UploadProfileImg/ProfileImg";
+import ProfileImg from "./Components/ProfileImg/ProfileImg";
 import CreateBio from "./Components/CreateBio/CreateBio";
 import Home from "./Components/Profile/Home";
-import HomeTest from "./Components/Profile/HomeTest";
+import HomeTest from "./Components/Profile/tests/HomeTest";
 import PostVerse from "./Components/PostVerse/postverse";
-import GetPostVerse from "./Components/PostVerse/getPostVerse";
-import ChooseAnImg from "./Components/Gallery/ChooseAnImg";
-import GlobalPost from "./Components/Global/GlobalPost";
-import FindGalImgs from "./Components/Global/FindGalIMgs";
+import GetPostVerse from "./Components/GetVerse/getPostVerse";
+import Gallery from "./Components/Gallery/Gallery";
+import UploadGalmg from "./Components/Reuseables/UploadGaImg";
 import TestShareWallComp from "./Components/ShareWall/TestShareWallComp";
 
-import ImgA from "./Components/GalleryComps/ImgA";
-import ImgB from "./Components/GalleryComps/ImgB";
+import Waterfall from "./Components/Gallery/components/Waterfall";
+import GreenMount from "./Components/Gallery/components/GreenMount";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
@@ -36,18 +35,17 @@ function App() {
             <Route exact path={"/success"} component={SignupSuccess} />
             <Route exact path={"/createbio"} component={CreateBio} />
             <Route exact path={"/profile_img"} component={ProfileImg} />
-            <Route exact path={"/chooseimg"} component={ChooseAnImg} />
+            <Route exact path={"/gallery"} component={Gallery} />
             <Route exact path={"/postverse"} component={PostVerse} />
             <Route exact path={"/getimage/:id"} component={GetPostVerse} />
             <Route exact path={"/create"} component={PostVerse} />
             <Route path={"/getverse/:id"} component={GetPostVerse} />
             <Route path={"/testsharewall"} component={TestShareWallComp} />
 
-            <Route path={"/globalpost"} component={GlobalPost} />
-            <Route path={"/search"} component={FindGalImgs} />
+            <Route path={"/upload"} component={UploadGalmg} />
             
-            <Route path={"/imga"} component={ImgA} /> 
-            <Route path={"/imgb"} component={ImgB} /> 
+            <Route path={"/waterfall"} component={Waterfall} /> 
+            <Route path={"/greenmount"} component={GreenMount} /> 
 
 
           </Switch>

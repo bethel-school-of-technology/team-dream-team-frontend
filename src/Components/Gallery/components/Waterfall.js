@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
+import Input from "../../Reuseables/reusableInput/Input";
 
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-// import "./postverse.css";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
+// import "./postverse.css";
 
-const ImgA = () => {
+
+const Waterfall = () => {
   const [imagePreview, setImagePreview] = useState(
-    "images/img_1.jpg"
-  );
-  const [body, setBody] = useState("");
-  const [title, setTitle] = useState("");
+    "https://firebasestorage.googleapis.com/v0/b/share-verse-images.appspot.com/o/images%2Fimg_1.jpg?alt=media&token=09d374fd-f2d3-4080-bd8e-317fb15fa5cb"
+    );
+  const [body, setBodyInput] = useState("");
+  const [title, setTitleInput] = useState("");
   const [id, setId] = useState("");
 
   const history = useHistory();
@@ -24,7 +26,7 @@ const ImgA = () => {
     //gets data from inputs and sends to backend
     axios({
       method: "POST",
-      url: "http://localhost:5000/imga",
+      url: "http://localhost:5000/waterfall",
       data: {
         body: body,
         title: title,
@@ -34,14 +36,6 @@ const ImgA = () => {
       console.log(response.data);
       setId(response.data.data._id);
     });
-  }
-
-  function handleTitle(e) {
-    setTitle(e.target.value);
-  }
-
-  function handleBody(e) {
-    setBody(e.target.value);
   }
 
   useEffect(() => {
@@ -67,37 +61,32 @@ const ImgA = () => {
   // },[]);
 
   return (
-    <div className="imaga">
+    <div className="waterfall">
       <Container className="mt-5 ml-auto mr-auto">
         <h1 className="text-center"> Post to
           <span className="text-success"> ShareVerse</span>
         </h1>
         <Form className="shadow p-3 mb-5 bg-white rounded">
           <Form.Group controlId="formBasicVerse">
-            <Form.Label>
+          <Form.Label> 
               <h5>Verse Title</h5>
             </Form.Label>
-            <Form.Control
-              type="text" name="title"
-              value={title}
-              onChange={handleTitle}
-              height="Auto"
-              required
-            />
-          </Form.Group>
+            <Input setInputValue={setTitleInput} 
+                   inputValue={title} 
+                   inputName={'title'}
+                   inputType={"text"}
+          />          
+            </Form.Group>
 
           <Form.Group controlId="formBasicVerse">
             <Form.Label>
               <h5>Verse Body:</h5>
             </Form.Label>
-            <Form.Control
-              type="text"
-              name="body"
-              value={body}
-              onChange={handleBody}
-              height="Auto"
-              required
-            />
+            <Input setInputValue={setBodyInput} 
+                   inputValue={body} 
+                   inputName={'body'}
+                   inputType={"text"}
+          />      
           </Form.Group>
           <div className="">
             <Card className="bg-dark text-white">
@@ -132,6 +121,6 @@ const ImgA = () => {
   );
 };
 
-export default ImgA;
+export default Waterfall;
 
 //------------------------------------------------------------------

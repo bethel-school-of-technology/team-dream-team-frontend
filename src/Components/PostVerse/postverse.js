@@ -11,7 +11,7 @@ import "./postverse.css";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 
-const PostVerse = ({ match }) => {
+const PostVerse = () => {
   const [imagePreview, setImagePreview] = useState(
     "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.hdnicewallpapers.com%2FWalls%2FBig%2FMountain%2FMountains_and_River_Wallpapers.jpg&f=1&nofb=1"
   );
@@ -33,7 +33,7 @@ const PostVerse = ({ match }) => {
     //gets data from inputs and sends to backend
     axios({
       method: "POST",
-      url: "http://localhost:5000/create",
+      url: "http://localhost:5000/createpostverse",
       data: {
         body: body,
         title: title,
@@ -132,7 +132,7 @@ const PostVerse = ({ match }) => {
                   Upload Image
                 </Button>
                 <div>
-                  <Button className="chooseBtn mt-2 mb-3" href="chooseimg">
+                  <Button className="chooseBtn mt-2 mb-3" href="gallery">
                     Choose from Gallery
                   </Button>
                 </div>
