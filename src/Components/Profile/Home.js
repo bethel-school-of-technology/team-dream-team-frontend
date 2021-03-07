@@ -51,16 +51,16 @@ class Home extends React.Component {
       <div className="home">
         <Container className="">
           <Row>
-            <Col>
+            <Col ClassName="d-flex align-items-center">
               <Span> Home (You are logged in) </Span>
             </Col>
-            <Col>
+            <Col className="">
               <div className="d-flex align-items-center justify-content-end">
                 <Button
-                  className="logoutBtn mb-2 mt-2"
+                  className="loginBtn mb-2 mt-2"
                   onClick={(e) => {
                     window.localStorage.removeItem("token");
-                    this.props.history.push("/");
+                    this.props.history.push("/login");
                   }}
                 >
                   Logout
@@ -69,32 +69,35 @@ class Home extends React.Component {
             </Col>
           </Row>
           <Form>
-            <Card>
+            <Card className="">
               <Card.Body>
                 <Card.Title>
-                  <div> Navi </div>
-                  <h1>Welcome Back <span>Username</span></h1>
+                  <div><Navi/></div>
+                  <h1>Welcome Back<span>Username</span></h1>
+                  <Card.Title></Card.Title>
                   <Container>
-                    <Row>
-                      <Col>
+                    <Row className="">
+                      <Col className="">
                         <div>Place Holder Image</div>
                       </Col>
-                      <Col>
+                      <Col className="bg-warning">
+                        <div className=""></div>
                         <Card.Text as="textarea" placeholder="Text area for Bio"></Card.Text>
                         <Button
-                            className="postSubBtn mb-3"
+                            className="ShareVsBtn"
                             variant="success"
                             type="submit"
                           >
-                            Post a Verse
+                            Share Verse
                           </Button>
                           <Button
-                            className="postSubBtn mb-3"
+                            className="ShareVsBtn"
                             variant="success"
                             type="submit"
                           >
-                            Post a Verse
+                            Post A Verse
                           </Button>
+
                       </Col>
                     </Row>
                   </Container>
