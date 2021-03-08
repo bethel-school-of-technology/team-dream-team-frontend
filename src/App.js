@@ -13,6 +13,7 @@ import GetPostVerse from "./Components/GetVerse/getPostVerse";
 import Gallery from "./Components/Gallery/Gallery";
 import UploadGalmg from "./Components/Reuseables/UploadGaImg";
 import TestShareWallComp from "./Components/ShareWall/TestShareWallComp";
+import ShareWallComp from "./Components/ShareWall/ShareWallComp";
 
 import Waterfall from "./Components/Gallery/components/Waterfall";
 import GreenMount from "./Components/Gallery/components/GreenMount";
@@ -41,6 +42,7 @@ function App() {
             <Route exact path={"/create"} component={PostVerse} />
             <Route path={"/getverse/:id"} component={GetPostVerse} />
             <Route path={"/testsharewall"} component={TestShareWallComp} />
+            <Route path={"/sharewall"} component={ShareWallComp} />
 
             <Route path={"/upload"} component={UploadGalmg} />
             
