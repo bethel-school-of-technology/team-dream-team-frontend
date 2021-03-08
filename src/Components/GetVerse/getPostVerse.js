@@ -3,6 +3,7 @@ import {useHistory} from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
+import Navi from "../Navigation/nav";
 // import Button from "react-bootstrap/Button";
 // import "./postverse.css";
 import axios from "axios";
@@ -20,7 +21,7 @@ const GetPostVerse = ({ match }) => {
       );
       setTitle(res.data.data.title);
 
-      // console.log(res.data);
+      console.log(res.data);
       // console.log(res.data.data.title);
       // console.log(match.params.id);
       setBody(res.data.data.body);
@@ -67,12 +68,11 @@ const GetPostVerse = ({ match }) => {
     }
     loadData()
     loadimg()
-  });
-// },[]);
-
+  },[]);
   return (
     <div className="getpostverse">
       <Container className="mt-5 ml-auto mr-auto">
+        <Navi />
         <h1 className="text-center">
           ShareVerse
           <span className="text-success"> Saved Posts</span>

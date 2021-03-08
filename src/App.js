@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import axios from "axios";
+
 import Navi from "./Components/Navigation/nav";
 import SignUp from "./Components/SignUp/SignUp";
 import Login from "./Components/Login/Login";
@@ -14,14 +16,38 @@ import Gallery from "./Components/Gallery/Gallery";
 import UploadGalmg from "./Components/Reuseables/UploadGaImg";
 import TestShareWallComp from "./Components/ShareWall/TestShareWallComp";
 
-import Waterfall from "./Components/Gallery/components/Waterfall";
-import GreenMount from "./Components/Gallery/components/GreenMount";
+// import GreenMount from "./Components/Gallery/components/GreenMount";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
+//gallery imports
+import Cross from "./Components/Gallery/posts/Cross";
+import Waterfall from "./Components/Gallery/posts/Waterfall";
+import Freedom from "./Components/Gallery/posts/Freedom";
+
+import CrossPost from "./Components/Gallery/get/CrossPost";
+import WaterfallPost from "./Components/Gallery/get/WaterfallPost";
+import FreedomPost from "./Components/Gallery/get/FreedomPost";
+
 
 function App() {
+  // const [name, setName] = useState([]);
+
+  // const loadImage = async () => {
+  //   try {
+  //     let res = await axios.get("http://localhost:5000/geturls");
+  //     console.log(res.data)
+  //     setName(res.data.map(n=>n.name)); //array of names
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   loadImage();
+  //   }
+  // ,[]);
 
   return (
     <div className="App">
@@ -41,12 +67,21 @@ function App() {
             <Route exact path={"/create"} component={PostVerse} />
             <Route path={"/getverse/:id"} component={GetPostVerse} />
             <Route path={"/testsharewall"} component={TestShareWallComp} />
-
+            
             <Route path={"/upload"} component={UploadGalmg} />
             
+            {/* routes for gallery */}
             <Route path={"/waterfall"} component={Waterfall} /> 
-            <Route path={"/greenmount"} component={GreenMount} /> 
+            <Route path={"/cross"} component={Cross} /> 
+            <Route path={"/freedom"} component={Freedom} />
 
+            <Route path={"/getinputwaterfall/:id"} component={WaterfallPost} /> 
+            <Route path={"/getinputcross/:id"} component={CrossPost} /> 
+            <Route path={"/getinputfreedom/:id"} component={FreedomPost} />
+
+            {/* {name.filter(name => name === `${name}` ).map((urlName) => (
+            <Route exact path={`/getinputt/${urlName}`} component={CrossPost} /> 
+            ))} */}
 
           </Switch>
           </Router>

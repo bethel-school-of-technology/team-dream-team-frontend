@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 // dynamic inputs
 const Input = ({ inputType, inputValue, inputName, setInputValue }) => (
     <input 
+    className="inputField"
     type={inputType}
     value={inputValue}
     name={inputName}
