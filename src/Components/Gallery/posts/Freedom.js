@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
-
+import Input from "../../Reuseables/reusableInput/Input";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "../css/waterfall.css";
 import axios from "axios";
+// import "./postverse.css";
 
-const ImgB = () => {
-  const [imagePreview, setImagePreview] = useState(
-    "images/img_2.jpg"
-  );
-  const [body, setBody] = useState("");
-  const [title, setTitle] = useState("");
+
+const Freedom = () => {
+  const [body, setBodyInput] = useState("");
+  const [title, setTitleInput] = useState("");
   const [id, setId] = useState("");
+  const [url, setUrl] = useState([]);
+  const [name, setName] = useState([]);
 
   const history = useHistory();
 
@@ -23,25 +25,33 @@ const ImgB = () => {
     //gets data from inputs and sends to backend
     axios({
       method: "POST",
-      url: "http://localhost:5000/imga",
+      url: "http://localhost:5000/getinput",
       data: {
         body: body,
         title: title,
+        name: name.find(name => name === "cross"),
+        // name.find(name => name.includes("water"))
         // images: images,
+
       },
     }).then((response) => {
-      console.log(response.data);
       setId(response.data.data._id);
+      // setName(response.data.name);
+      console.log(response.data);
+      console.log('name', name)
     });
   }
 
-  function handleTitle(e) {
-    setTitle(e.target.value);
-  }
-
-  function handleBody(e) {
-    setBody(e.target.value);
-  }
+  const loadImage = async () => {
+    try {
+      let res = await axios.get("http://localhost:5000/geturls");
+      console.log(res.data)
+      setUrl(res.data.map(d=>d.url)); // array of urls
+      setName(res.data.map(n=>n.name)); //array of names
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     // console.log("use effect working!");
@@ -62,47 +72,46 @@ const ImgB = () => {
       const myDecodedToken = decodeToken(window.localStorage.getItem("token"));
       console.log(myDecodedToken);
     }
-  });
-  // },[]);
+    loadImage();
+  },[history]);
 
   return (
-    <div className="Imgb">
+    <div className="freedom">
       <Container className="mt-5 ml-auto mr-auto">
-        <h1 className="text-center">
-          Post to
+        <h1 className="text-center"> Post to
           <span className="text-success"> ShareVerse</span>
         </h1>
         <Form className="shadow p-3 mb-5 bg-white rounded">
           <Form.Group controlId="formBasicVerse">
-            <Form.Label>
+          <Form.Label> 
               <h5>Verse Title</h5>
             </Form.Label>
-            <Form.Control
-              type="text"
-              name="title"
-              value={title}
-              onChange={handleTitle}
-              height="Auto"
-              required
-            />
-          </Form.Group>
+            <Input setInputValue={setTitleInput} 
+                   inputValue={title} 
+                   inputName={'title'}
+                   inputType={"text"}
+          />          
+            </Form.Group>
 
           <Form.Group controlId="formBasicVerse">
             <Form.Label>
               <h5>Verse Body:</h5>
             </Form.Label>
-            <Form.Control
-              type="text"
-              name="body"
-              value={body}
-              onChange={handleBody}
-              height="Auto"
-              required
-            />
+            <Input setInputValue={setBodyInput}  
+                   inputValue={body} 
+                   inputName={'body'}
+                   inputType={"text"}
+          />      
           </Form.Group>
           <div className="">
             <Card className="bg-dark text-white">
-            <Card.Img src={imagePreview} alt="Card image" />
+            {name.filter(name => name.includes('freedom')).map((urlName) => (
+            <div>name:{urlName}</div>
+            ))}
+            
+            {url.filter(name => name.includes('freedom')).map((urlData) => (
+            <Card.Img name={url.name} src={urlData} alt="Card image" />
+            ))}
               <Card.ImgOverlay> 
                 <Card.Title className="text-center mt-5">
                   <h1>{title}</h1>
@@ -111,18 +120,16 @@ const ImgB = () => {
               </Card.ImgOverlay>
             </Card>
             <div>
-              <Button
-                className=" saveImageBtn mt-3"
-                type="submit"
-                onClick={makeRequest}
-              >
-                Save
+              <Button 
+                  className=" saveImageBtn mt-3" 
+                  type="submit" onClick={makeRequest}
+              > Save
               </Button>
 
               <div>
               <Button
                 className=" saveImageBtn mt-3"
-                href={`http://localhost:3000/getverse/${id}`}
+                href={`http://localhost:3000/getinputfreedom/${id}`}
               >
                 View Post!
               </Button>
@@ -135,6 +142,5 @@ const ImgB = () => {
   );
 };
 
-export default ImgB;
+export default Freedom;
 
-//------------------------------------------------------------------

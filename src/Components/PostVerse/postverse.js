@@ -33,7 +33,7 @@ const PostVerse = () => {
     //gets data from inputs and sends to backend
     axios({
       method: "POST",
-      url: "http://localhost:5000/createpostverse",
+      url: "http://localhost:5000/postimgverse",
       data: {
         body: body,
         title: title,
@@ -72,8 +72,7 @@ const PostVerse = () => {
       const myDecodedToken = decodeToken(window.localStorage.getItem("token"));
       console.log(myDecodedToken);
     }
-  });
-  // },[]);
+  },[history]);
 
   return (
     <div className="postverse">

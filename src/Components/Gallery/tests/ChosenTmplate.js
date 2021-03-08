@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
-import Navi from "../Navigation/nav";
+import Navi from "../../Navigation/nav";
 import "../Gallery/css/gallery.css";
 
 import Container from "react-bootstrap/Container";
@@ -9,14 +9,10 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
-import Waterfall from "./components/Waterfall";
-import GreenMount from "./components/GreenMount";
+import Waterfall from "../posts/Waterfall";
+import GreenMount from "../posts/GreenMount";
 
 const PostVerse = () => {
-  const [msg, setMsg] = useState({
-    message: null
-  });
-
   const history = useHistory();
   const [active, setActive] = useState("greenmount");
 

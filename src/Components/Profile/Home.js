@@ -9,11 +9,8 @@ import Col from "react-bootstrap/Col";
 import Navi from "../Navigation/nav";
 import Image from "react-bootstrap/Image";
 import axios from "axios";
-<<<<<<< HEAD
 import Nav from "react-bootstrap/Nav";
-import "./login.css";
-=======
->>>>>>> 658279d6c3bb79f731177f1e276a3f053e22c9e6
+import "../Login/login.css";
 
 
 // ------below code is for login and out functionality--------------------
@@ -52,7 +49,7 @@ class Home extends React.Component {
         <Container className="">
           <Row>
             <Col ClassName="d-flex align-items-center">
-              <Span> Home (You are logged in) </Span>
+              <span> Home (You are logged in) </span>
             </Col>
             <Col className="">
               <div className="d-flex align-items-center justify-content-end">
