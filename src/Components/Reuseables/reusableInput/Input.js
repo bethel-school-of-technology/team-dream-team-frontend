@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import '../css/input.css';
 
 // dynamic inputs
 const Input = ({ inputType, inputValue, inputName, setInputValue }) => (
