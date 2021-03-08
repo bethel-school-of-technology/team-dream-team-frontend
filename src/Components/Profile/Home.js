@@ -16,7 +16,7 @@ import "./login.css";
 >>>>>>> 658279d6c3bb79f731177f1e276a3f053e22c9e6
 
 
-// ------below code is for login and out functionality--------------------
+
 class Home extends React.Component {
   componentDidMount() {
     if (!window.localStorage.getItem("token")) {
@@ -49,7 +49,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <Container className="">
+        <Container className="homeContainer shadow mt-2">
           <Row>
             <Col ClassName="d-flex align-items-center">
               <Span> Home (You are logged in) </Span>
@@ -72,31 +72,35 @@ class Home extends React.Component {
             <Card className="">
               <Card.Body>
                 <Card.Title>
-                  <div><Navi/></div>
+                  <div><Navi /></div>
                   <h1>Welcome Back<span>Username</span></h1>
                   <Card.Title></Card.Title>
                   <Container>
                     <Row className="">
-                      <Col className="">
-                        <div>Place Holder Image</div>
+                      <Col className="d-flex justify-content-center col-12">
+                        <div className="placerholder text-center">Place Holder Image</div>
                       </Col>
-                      <Col className="bg-warning">
-                        <div className=""></div>
+                      <Col className="mt-n5">
+                        <div className="col-12 text-center"></div>
                         <Card.Text as="textarea" placeholder="Text area for Bio"></Card.Text>
-                        <Button
+                        <div className="d-flex justify-content-center mt-3">
+                          <Button
                             className="ShareVsBtn"
                             variant="success"
                             type="submit"
                           >
                             Share Verse
                           </Button>
+                        </div>
+                        <div className="d-flex justify-content-center mt-3">
                           <Button
-                            className="ShareVsBtn"
+                            className="postSubBtn mb-3"
                             variant="success"
                             type="submit"
                           >
                             Post A Verse
                           </Button>
+                        </div>
 
                       </Col>
                     </Row>
