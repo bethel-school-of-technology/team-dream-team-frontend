@@ -95,13 +95,13 @@ class GlobalPost extends Component {
             </div>
           </Row>
 
-          <Card.Image
+          <img
             className="defImg"
             src={this.state.url || DefaultImage}
             alt="Uploaded Images"
             height="300"
             width="400"
-          ></Card.Image>
+          />
         </Container>
       </Container>
     );

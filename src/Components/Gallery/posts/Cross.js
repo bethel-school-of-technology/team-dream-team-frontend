@@ -2,22 +2,21 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
 import Input from "../../Reuseables/reusableInput/Input";
-
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import "../css/waterfall.css";
 import axios from "axios";
 // import "./postverse.css";
 
 
-const Waterfall = () => {
-  const [imagePreview, setImagePreview] = useState(
-    "https://firebasestorage.googleapis.com/v0/b/share-verse-images.appspot.com/o/images%2Fimg_1.jpg?alt=media&token=09d374fd-f2d3-4080-bd8e-317fb15fa5cb"
-    );
+const Cross = () => {
   const [body, setBodyInput] = useState("");
   const [title, setTitleInput] = useState("");
   const [id, setId] = useState("");
+  const [url, setUrl] = useState([]);
+  const [name, setName] = useState([]);
 
   const history = useHistory();
 
@@ -26,17 +25,33 @@ const Waterfall = () => {
     //gets data from inputs and sends to backend
     axios({
       method: "POST",
-      url: "http://localhost:5000/waterfall",
+      url: "http://localhost:5000/getinput",
       data: {
         body: body,
         title: title,
+        name: name.find(name => name === "cross"),
+        // name.find(name => name.includes("water"))
         // images: images,
+
       },
     }).then((response) => {
-      console.log(response.data);
       setId(response.data.data._id);
+      // setName(response.data.name);
+      console.log(response.data);
+      console.log('name', name)
     });
   }
+
+  const loadImage = async () => {
+    try {
+      let res = await axios.get("http://localhost:5000/geturls");
+      console.log(res.data)
+      setUrl(res.data.map(d=>d.url)); // array of urls
+      setName(res.data.map(n=>n.name)); //array of names
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     // console.log("use effect working!");
@@ -57,11 +72,11 @@ const Waterfall = () => {
       const myDecodedToken = decodeToken(window.localStorage.getItem("token"));
       console.log(myDecodedToken);
     }
-  });
-  // },[]);
+    loadImage();
+  },[history]);
 
   return (
-    <div className="waterfall">
+    <div className="cross">
       <Container className="mt-5 ml-auto mr-auto">
         <h1 className="text-center"> Post to
           <span className="text-success"> ShareVerse</span>
@@ -82,7 +97,7 @@ const Waterfall = () => {
             <Form.Label>
               <h5>Verse Body:</h5>
             </Form.Label>
-            <Input setInputValue={setBodyInput} 
+            <Input setInputValue={setBodyInput}  
                    inputValue={body} 
                    inputName={'body'}
                    inputType={"text"}
@@ -90,7 +105,13 @@ const Waterfall = () => {
           </Form.Group>
           <div className="">
             <Card className="bg-dark text-white">
-            <Card.Img src={imagePreview} alt="Card image" />
+            {name.filter(name => name.includes('cross')).map((urlName) => (
+            <div>name:{urlName}</div>
+            ))}
+            
+            {url.filter(name => name.includes('cross')).map((urlData) => (
+            <Card.Img name={url.name} src={urlData} alt="Card image" />
+            ))}
               <Card.ImgOverlay> 
                 <Card.Title className="text-center mt-5">
                   <h1>{title}</h1>
@@ -108,7 +129,7 @@ const Waterfall = () => {
               <div>
               <Button
                 className=" saveImageBtn mt-3"
-                href={`http://localhost:3000/getverse/${id}`}
+                href={`http://localhost:3000/getinputcross/${id}`}
               >
                 View Post!
               </Button>
@@ -121,6 +142,5 @@ const Waterfall = () => {
   );
 };
 
-export default Waterfall;
+export default Cross;
 
-//------------------------------------------------------------------

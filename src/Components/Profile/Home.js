@@ -6,12 +6,14 @@ import Card from "react-bootstrap/Card";
 import "./home.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import Navi from "../Navigation/nav";
-// import Image from "react-bootstrap/Image";
+import Navi from "../Navigation/nav";
+import Image from "react-bootstrap/Image";
 import axios from "axios";
+import Nav from "react-bootstrap/Nav";
+import "../Login/login.css";
 
 
-// ------below code is for login and out functionality--------------------
+
 class Home extends React.Component {
   componentDidMount() {
     if (!window.localStorage.getItem("token")) {
@@ -37,43 +39,66 @@ class Home extends React.Component {
         .catch((res) => console.log(res));
     }
   }
-// ------end login/logout functionality-----------------------------------
+  // ------end login/logout functionality-----------------------------------
 
 
 
   render() {
     return (
       <div className="home">
-        <Container className="">
+        <Container className="homeContainer shadow mt-2">
           <Row>
-            <Col>
-            {/* Home you are logged in... */}
+            <Col ClassName="d-flex align-items-center">
+              <span> Home (You are logged in) </span>
             </Col>
-            <Col>
-            {/* logout btn */}
+            <Col className="">
+              <div className="d-flex align-items-center justify-content-end">
+                <Button
+                  className="loginBtn mb-2 mt-2"
+                  onClick={(e) => {
+                    window.localStorage.removeItem("token");
+                    this.props.history.push("/login");
+                  }}
+                >
+                  Logout
+                </Button>
+              </div>
             </Col>
           </Row>
           <Form>
-            <Card>
+            <Card className="">
               <Card.Body>
                 <Card.Title>
+                  <div><Navi /></div>
+                  <h1>Welcome Back<span>Username</span></h1>
+                  <Card.Title></Card.Title>
                   <Container>
-                    <Row>
-                      <Col>
-                      <div>
-                        {/* Place holder img... */}
-                      </div>
+                    <Row className="">
+                      <Col className="d-flex justify-content-center col-12">
+                        <div className="placerholder text-center">Place Holder Image</div>
                       </Col>
-                      <Col>
-                      <Card.Text>
-                        {/* place holder for bio text */}
-                      </Card.Text>
-                      <Button>
-                        {/* Share Verse Btn */}
-                      </Button>
-                      <Button>
-                        {/* Post Verse Btn */}
-                      </Button>
+                      <Col className="mt-n5">
+                        <div className="col-12 text-center"></div>
+                        <Card.Text as="textarea" placeholder="Text area for Bio"></Card.Text>
+                        <div className="d-flex justify-content-center mt-3">
+                          <Button
+                            className="ShareVsBtn"
+                            variant="success"
+                            type="submit"
+                          >
+                            Share Verse
+                          </Button>
+                        </div>
+                        <div className="d-flex justify-content-center mt-3">
+                          <Button
+                            className="postSubBtn mb-3"
+                            variant="success"
+                            type="submit"
+                          >
+                            Post A Verse
+                          </Button>
+                        </div>
+
                       </Col>
                     </Row>
                   </Container>

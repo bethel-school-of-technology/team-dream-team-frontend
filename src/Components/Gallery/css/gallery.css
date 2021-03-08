@@ -1,3 +1,14 @@
 .img-thumbnail {
     width: 200% !important;
 }
+
+.img-thumbnail:hover {
+    border: 20px #b6c7d834 unset !important;
+    zoom: 1%;
+}
+
+/* .galleryImg {
+    width: 100% !important;
+    height: 500px !important;
+    background-color: cadetblue !important;
+} */
