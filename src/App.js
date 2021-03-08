@@ -32,8 +32,9 @@ import WaterfallPost from "./Components/Gallery/get/WaterfallPost";
 import FreedomPost from "./Components/Gallery/get/FreedomPost";
 
 
+
 function App() {
-  // const [name, setName] = useState([]);
+  // const [name, setName] = useState([]);    
 
   // const loadImage = async () => {
   //   try {
@@ -42,13 +43,13 @@ function App() {
   //     setName(res.data.map(n=>n.name)); //array of names
   //   } catch (error) {
   //     console.log(error);
+
   //   }
   // };
 
   // useEffect(() => {
   //   loadImage();
-  //   }
-  // ,[]);
+  // },[]);
 
   return (
     <div className="App">
@@ -81,8 +82,9 @@ function App() {
             <Route path={"/getinputcross/:id"} component={CrossPost} /> 
             <Route path={"/getinputfreedom/:id"} component={FreedomPost} />
 
-            {/* {name.filter(name => name === `${name}` ).map((urlName) => (
-            <Route exact path={`/getinputt/${urlName}`} component={CrossPost} /> 
+            {/* 
+            {name.map((names) => (
+            <Route key={'name'} path={`/getinput/${name}/:id`} component={names} /> 
             ))} */}
 
           </Switch>
