@@ -8,10 +8,12 @@ import "./CreateBio.css";
 import axios from "axios";
 
 class CreateBio extends React.Component {
-  // state = {
-  //        bioText: ""
-
-  // };
+  constructor(props) {
+    super(props);
+    this.state = {
+      userBio: null,
+    };
+  }
 
   componentDidMount() {
     if (!window.localStorage.getItem("token")) {
@@ -38,9 +40,19 @@ class CreateBio extends React.Component {
     }
   }
 
+  handleUserInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;    
+    this.setState({ [name]: value }, () => {
+    });
+  };
+
   bioCreateHandler() {
     axios
-      .post("http://localhost:5000/createbio")
+      .post("http://localhost:5000/createbio",
+      {
+        userBio: this.state.userBio,
+      })
       .then((res) => {
         console.log(res);
       })
@@ -48,6 +60,10 @@ class CreateBio extends React.Component {
         console.log(err);
       });
   }
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   render() {
     return (
@@ -73,24 +89,26 @@ class CreateBio extends React.Component {
                 as="textarea"
                 className="bioInput d-flex align-items-start"
                 type="text"
-                name="bio"
-                required
+                defaultValue={this.state.userBio}
+                onChange={this.handleChange}
+                name="userBio"
                 placeholder="Tell us a little about yourself."
               />
             </Form.Group>
 
             <Button
               variant="secondary"
-              type="submit"
+              type="button"
               className="submitBtn"
               href="/profile_img"
               // disabled={!this.state.formValid}
-              onClick={this.bioCreateHandler}
+              onClick={this.bioCreateHandler.bind(this)}
             >
               Submit
             </Button>
             <Nav.Link className="skipBio text-muted d-flex justify-content-start mt-2" 
-                 href="/profile_img">
+                      href="/profile_img" 
+                      >
               Skip this for now?
             </Nav.Link>
             {/* <Button type="submit" href="/home-test">
