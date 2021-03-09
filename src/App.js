@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from "axios";
 
@@ -14,7 +14,7 @@ import PostVerse from "./Components/PostVerse/postverse";
 import GetPostVerse from "./Components/GetVerse/getPostVerse";
 import Gallery from "./Components/Gallery/Gallery";
 import UploadGalmg from "./Components/Reuseables/UploadGaImg";
-import TestShareWallComp from "./Components/ShareWall/TestShareWallComp";
+import TestShareWallComp from "./Components/ShareWall/tests/TestShareWallComp";
 import ShareWallComp from "./Components/ShareWall/ShareWallComp";
 
 // import GreenMount from "./Components/Gallery/components/GreenMount";
@@ -31,67 +31,52 @@ import CrossPost from "./Components/Gallery/get/CrossPost";
 import WaterfallPost from "./Components/Gallery/get/WaterfallPost";
 import FreedomPost from "./Components/Gallery/get/FreedomPost";
 
-
-
 function App() {
-  // const [name, setName] = useState([]);    
-
-  // const loadImage = async () => {
-  //   try {
-  //     let res = await axios.get("http://localhost:5000/geturls");
-  //     console.log(res.data)
-  //     setName(res.data.map(n=>n.name)); //array of names
-  //   } catch (error) {
-  //     console.log(error);
-
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   loadImage();
-  // },[]);
+  const imagePostRoutes = [
+    { name: "cross", component: CrossPost },
+    { name: "freedom", component: FreedomPost },
+    { name: "waterfall", component: WaterfallPost },
+  ];
 
   return (
     <div className="App">
-        <Router>
-          <Switch>
-            <Route exact path={"/"} component={Login} />
-            <Route exact path={"/home"} component={Home} />
-            <Route exact path={"/home-test"} component={HomeTest} />
-            <Route exact path={"/nav"} component={Navi} />
-            <Route exact path={"/register"} component={SignUp} />
-            <Route exact path={"/success"} component={SignupSuccess} />
-            <Route exact path={"/createbio"} component={CreateBio} />
-            <Route exact path={"/profile_img"} component={ProfileImg} />
-            <Route exact path={"/gallery"} component={Gallery} />
-            <Route exact path={"/postverse"} component={PostVerse} />
-            <Route exact path={"/getimage/:id"} component={GetPostVerse} />
-            <Route exact path={"/create"} component={PostVerse} />
-            <Route path={"/getverse/:id"} component={GetPostVerse} />
-            <Route path={"/testsharewall"} component={TestShareWallComp} />
-            <Route path={"/sharewall"} component={ShareWallComp} />            
+      <Router>
+        <Switch>
+          <Route exact path={"/"} component={Login} />
+          <Route exact path={"/home"} component={Home} />
+          <Route exact path={"/home-test"} component={HomeTest} />
+          <Route exact path={"/nav"} component={Navi} />
+          <Route exact path={"/register"} component={SignUp} />
+          <Route exact path={"/success"} component={SignupSuccess} />
+          <Route exact path={"/createbio"} component={CreateBio} />
+          <Route exact path={"/profile_img"} component={ProfileImg} />
+          <Route exact path={"/gallery"} component={Gallery} />
+          <Route exact path={"/postverse"} component={PostVerse} />
+          <Route exact path={"/getimage/:id"} component={GetPostVerse} />
+          <Route exact path={"/create"} component={PostVerse} />
+          <Route path={"/getverse/:id"} component={GetPostVerse} />
+          <Route path={"/testsharewall"} component={TestShareWallComp} />
+          <Route path={"/sharewall"} component={ShareWallComp} />
 
-            <Route path={"/upload"} component={UploadGalmg} />
-            
-            {/* routes for gallery */}
-            <Route path={"/waterfall"} component={Waterfall} /> 
-            <Route path={"/cross"} component={Cross} /> 
-            <Route path={"/freedom"} component={Freedom} />
+          <Route path={"/upload"} component={UploadGalmg} />
 
-            <Route path={"/getinputwaterfall/:id"} component={WaterfallPost} /> 
-            <Route path={"/getinputcross/:id"} component={CrossPost} /> 
-            <Route path={"/getinputfreedom/:id"} component={FreedomPost} />
+          {/* routes for gallery */}
+          <Route path={"/waterfall"} component={Waterfall} />
+          <Route path={"/cross"} component={Cross} />
+          <Route path={"/freedom"} component={Freedom} />
 
-            {/* 
-            {name.map((names) => (
-            <Route key={'name'} path={`/getinput/${name}/:id`} component={names} /> 
-            ))} */}
+          {/* <Route path={"/getinputwaterfall/:id"} component={WaterfallPost} />
+          <Route path={"/getinputcross/:id"} component={CrossPost} />
+          <Route path={"/getinputfreedom/:id"} component={FreedomPost} /> */}
 
-          </Switch>
-          </Router>
-      </div>
-    );
+          {imagePostRoutes.map(({ component, name }) => (
+            <Route
+              key={name} path={`/getinput${name}/:id`} component={component}
+            />
+          ))}
+        </Switch>
+      </Router>
+    </div>
+  );
 }
 export default App;
-
-         

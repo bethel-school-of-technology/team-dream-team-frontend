@@ -1,13 +1,12 @@
 .card-header {
-    height: 237px !important;
+    height: 320px !important;
 }
 
 .sharecont {
-    height: 120px !important;
+    height: 250px !important;
     background-color: rgb(255, 255, 255) !important;
     border: 1px solid #94929286 !important;
     font-size: 40px !important;
-    padding-top: 20px !important;
     margin-top: 40px !important;
     color:darkgoldenrod !important;
 }

@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import "./home.css";
+import "./tests/home-test.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navi from "../Navigation/nav";
@@ -11,8 +11,6 @@ import Image from "react-bootstrap/Image";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import "../Login/login.css";
-
-
 
 class Home extends React.Component {
   componentDidMount() {
@@ -41,8 +39,6 @@ class Home extends React.Component {
   }
   // ------end login/logout functionality-----------------------------------
 
-
-
   render() {
     return (
       <div className="home">
@@ -69,22 +65,32 @@ class Home extends React.Component {
             <Card className="">
               <Card.Body>
                 <Card.Title>
-                  <div><Navi /></div>
-                  <h1>Welcome Back<span>Username</span></h1>
+                  <div>
+                    <Navi />
+                  </div>
+                  <h1>
+                    Welcome Back<span>Username</span>
+                  </h1>
                   <Card.Title></Card.Title>
                   <Container>
                     <Row className="">
                       <Col className="d-flex justify-content-center col-12">
-                        <div className="placerholder text-center">Place Holder Image</div>
+                        <div className="placerholder text-center">
+                          Place Holder Image
+                        </div>
                       </Col>
                       <Col className="mt-n5">
                         <div className="col-12 text-center"></div>
-                        <Card.Text as="textarea" placeholder="Text area for Bio"></Card.Text>
+                        <Card.Text
+                          as="textarea"
+                          placeholder="Text area for Bio"
+                        ></Card.Text>
                         <div className="d-flex justify-content-center mt-3">
                           <Button
                             className="ShareVsBtn"
                             variant="success"
                             type="submit"
+                            href="sharewall"
                           >
                             Share Verse
                           </Button>
@@ -98,7 +104,6 @@ class Home extends React.Component {
                             Post A Verse
                           </Button>
                         </div>
-
                       </Col>
                     </Row>
                   </Container>

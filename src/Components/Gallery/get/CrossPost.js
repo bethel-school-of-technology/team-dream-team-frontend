@@ -84,10 +84,10 @@ const GetCross = ({ match }) => {
                 ))}
               <Card.ImgOverlay>
                 <Card.Title className="text-center mt-5">
-                  <h1 className="text-warning">{title}</h1>
+                  <h1 className="text-light">{title}</h1>
                 </Card.Title>
                 <Card.Title className="text-center mt-5">
-                  <h3 className="text-warning">{body}</h3>
+                  <h3 className="text-light">{body}</h3>
                 </Card.Title>
               </Card.ImgOverlay>
             </Card>

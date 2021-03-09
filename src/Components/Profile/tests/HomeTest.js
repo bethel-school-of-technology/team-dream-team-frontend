@@ -89,6 +89,7 @@ class HomeTest extends React.Component {
                             className="shareVsBtn"
                             variant="success"
                             type="submit"
+                            href="sharewall"
                           >
                             Shared Verse
                           </Button>
