@@ -14,20 +14,20 @@ import axios from "axios";
 const ShareWallComp = ({match}) => {
     const [body, setBody] = useState([]);
     const [title, setTitle] = useState([]);
-    const [url, setUrl] = useState([]); //bk-ground image
+    // const [url, setUrl] = useState([]); //bk-ground image
     const history = useHistory();
 
-    const loadData = async () => {
+    const loadShareData = async () => {
         try {
           let res = await axios.get(
             `http://localhost:5000/getinputcross/${match.params.id}`
           );
-          setTitle(res.data.data.title);
+          setTitle(res.data.title);
     
           console.log(res.data);
           // console.log(res.data.data.title);
           // console.log(match.params.id);
-          setBody(res.data.data.body);
+          setBody(res.data.body);
         } catch (error) {
           console.log(error);
         }
@@ -52,7 +52,7 @@ const ShareWallComp = ({match}) => {
           const myDecodedToken = decodeToken(window.localStorage.getItem("token"));
           console.log(myDecodedToken);
         }
-        loadData();
+        loadShareData();
         // loadimg();
       }, []);
 
@@ -66,11 +66,11 @@ const ShareWallComp = ({match}) => {
                 </h1>
 
                 <Card className="bg-dark shadow text-white">
-              {url
+              {/* {url
                 .filter((name) => name.includes("cross"))
                 .map((urlData) => (
                   <Card.Img key={url.name} src={urlData} alt="Card image" />
-                ))}
+                ))} */}
               <Card.ImgOverlay>
                 <Card.Title className="text-center mt-5">
                   <h1 className="text-warning">{title}</h1>
