@@ -111,7 +111,7 @@ class Signup extends React.Component {
     }).then((response) => {
       console.log(response.data);
       // on submission user is directed to success page
-      // window.location.assign("/Success");
+      window.location.assign("/Success");
     });
 
     console.log(this.state);
@@ -198,7 +198,6 @@ class Signup extends React.Component {
                 variant="primary"
                 type="submit"
                 className="signupSubmitBtn"
-                href="success"
                 // set the disabled attribute of the submit
                 // button based on the value of the formValid state property.
                 disabled={!this.state.formValid}

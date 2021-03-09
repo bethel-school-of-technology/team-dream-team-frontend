@@ -53,6 +53,15 @@ const Cross = () => {
     }
   };
 
+  const appendToShareWall = async () => {
+    try {
+      
+
+    } catch (error) {
+    console.log(error);
+  }
+}
+
   useEffect(() => {
     // console.log("use effect working!");
     if (!window.localStorage.getItem("token")) {
@@ -129,7 +138,9 @@ const Cross = () => {
               <div>
               <Button
                 className=" saveImageBtn mt-3"
+                onclick={appendToShareWall}
                 href={`http://localhost:3000/getinputcross/${id}`}
+
               >
                 View Post!
               </Button>

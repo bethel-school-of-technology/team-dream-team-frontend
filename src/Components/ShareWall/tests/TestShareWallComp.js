@@ -1,11 +1,11 @@
 import React from "react";
-import Navi from "../Navigation/nav";
+import Navi from "../../Navigation/nav";
 import Card from "react-bootstrap/Card";
 // import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 // import Nav from "react-bootstrap/Nav";
-import "./sharewall.css";
+import "../sharewall.css";
 
 const ShareWallComp = () => {
   return (

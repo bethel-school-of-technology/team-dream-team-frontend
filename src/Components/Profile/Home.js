@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import "./home.css";
+import "./tests/home-test.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navi from "../Navigation/nav";
@@ -11,8 +11,6 @@ import Image from "react-bootstrap/Image";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import "../Login/login.css";
-
-
 
 class Home extends React.Component {
   componentDidMount() {
@@ -41,23 +39,21 @@ class Home extends React.Component {
   }
   // ------end login/logout functionality-----------------------------------
 
-
-
   render() {
     return (
-      <div className="home">
+      <div className="HomeTest">
         <Container className="homeContainer shadow mt-2">
           <Row>
-            <Col ClassName="d-flex align-items-center">
-              <span> Home (You are logged in) </span>
+            <Col className="d-flex align-items-center">
+              <span>Home (Your are logged in)</span>
             </Col>
             <Col className="">
               <div className="d-flex align-items-center justify-content-end">
                 <Button
-                  className="loginBtn mb-2 mt-2"
+                  className="logoutBtn mb-2 mt-2"
                   onClick={(e) => {
                     window.localStorage.removeItem("token");
-                    this.props.history.push("/login");
+                    this.props.history.push("/");
                   }}
                 >
                   Logout
@@ -66,43 +62,55 @@ class Home extends React.Component {
             </Col>
           </Row>
           <Form>
-            <Card className="">
+            <Card className="profileCard">
               <Card.Body>
-                <Card.Title>
-                  <div><Navi /></div>
-                  <h1>Welcome Back<span>Username</span></h1>
-                  <Card.Title></Card.Title>
-                  <Container>
-                    <Row className="">
-                      <Col className="d-flex justify-content-center col-12">
-                        <div className="placerholder text-center">Place Holder Image</div>
-                      </Col>
-                      <Col className="mt-n5">
-                        <div className="col-12 text-center"></div>
-                        <Card.Text as="textarea" placeholder="Text area for Bio"></Card.Text>
-                        <div className="d-flex justify-content-center mt-3">
+                <Card.Title className="text-center">
+                  <div>
+                    <Navi />
+                  </div>
+                  <h1>
+                    Welcome Back <span className="text-success">Username</span>
+                  </h1>
+                </Card.Title>
+
+                <Container>
+                  <Row>
+                    <Col className="d-flex justify-content-center col-12">
+                      <div className="placeholder text-center">
+                        Place Holder
+                      </div>
+                    </Col>
+                    <Col className="mt-n5">
+                      <div className="col-12 text-center">
+                        <Card.Text
+                          as="textarea"
+                          className="cardText text-center col-lg-10"
+                          placeholder="This is some text for the bio"
+                        ></Card.Text>
+                        <div className="mt-3">
                           <Button
-                            className="ShareVsBtn"
+                            className="shareVsBtn"
                             variant="success"
                             type="submit"
+                            href="sharewall"
                           >
-                            Share Verse
+                            Shared Verse
                           </Button>
                         </div>
-                        <div className="d-flex justify-content-center mt-3">
+                        <div className="mt-3">
                           <Button
                             className="postSubBtn mb-3"
                             variant="success"
                             type="submit"
+                            href="/postverse"
                           >
-                            Post A Verse
+                            Post a Verse
                           </Button>
                         </div>
-
-                      </Col>
-                    </Row>
-                  </Container>
-                </Card.Title>
+                      </div>
+                    </Col>
+                  </Row>
+                </Container>
               </Card.Body>
             </Card>
           </Form>
