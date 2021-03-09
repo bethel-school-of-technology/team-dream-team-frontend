@@ -8,10 +8,13 @@ import "./CreateBio.css";
 import axios from "axios";
 
 class CreateBio extends React.Component {
-  // state = {
-  //        bioText: ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      bioText: null,
+    };
 
-  // };
+  }
 
   componentDidMount() {
     if (!window.localStorage.getItem("token")) {
@@ -37,16 +40,24 @@ class CreateBio extends React.Component {
         .catch((res) => console.log(res));
     }
   }
+  
+  handleInput = (e) => {
+      const bioText = e.target.value;
+      this.setState(() => ({ bioText }));
+      console.log('biotext:i', bioText)
+  };
 
   bioCreateHandler() {
-    axios
-      .post("http://localhost:5000/createbio")
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios({
+      method: "POST",
+      url: "http://localhost:5000/createbio",
+      data: {
+        bioText: this.state.bioText,
+      },
+    }).then((response) => {
+      console.log(response.data);
+      // setId(response.data.data._id); // grabs id from inputs
+    });
   }
 
   render() {
@@ -72,6 +83,8 @@ class CreateBio extends React.Component {
               <Form.Control
                 as="textarea"
                 className="bioInput d-flex align-items-start"
+                onChange={this.handleInput}
+                value={this.bioText}
                 type="text"
                 name="bio"
                 required
@@ -83,7 +96,6 @@ class CreateBio extends React.Component {
               variant="secondary"
               type="submit"
               className="submitBtn"
-              href="/profile_img"
               // disabled={!this.state.formValid}
               onClick={this.bioCreateHandler}
             >

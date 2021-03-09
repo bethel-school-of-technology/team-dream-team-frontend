@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Navi from "../Navigation/nav";
+import Navi from "../../Navigation/nav";
 // import Image from "react-bootstrap/Image";
 import axios from "axios";
 import "./home-test.css";
@@ -23,13 +23,13 @@ class HomeTest extends React.Component {
         "Authorization"
       ] = window.localStorage.getItem("token");
       axios
-        .post("http://localhost:5000/")
+        .get("http://localhost:5000/")
         .then((res) => {
           console.log();
           if (!res.data.status) {
             //window.location.href = window.location.toString() + "/home";
             console.log("redirct to login");
-            this.props.history.push("/home");
+            this.props.history.push("/home-test");
           }
         })
         .catch((res) => console.log(res));
@@ -98,6 +98,7 @@ class HomeTest extends React.Component {
                             className="postSubBtn mb-3"
                             variant="success"
                             type="submit"
+                            href="/postverse"
                           >
                             Post a Verse
                           </Button>

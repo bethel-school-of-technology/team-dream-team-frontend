@@ -4,8 +4,17 @@
 
 .skipBio {
   font-size: smaller !important;
+  padding: 0 !important;
+}
+
+.skipBio:hover {
+  color:#008000 !important;
 }
 
 .proContainer {
    height: 480px !important;
+}
+
+.bioInput {
+  height: 150px !important;
 }

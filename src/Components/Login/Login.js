@@ -3,8 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import { FormErrors } from "../SignUp/FormErrors";
+import { FormErrors } from "../SignUp/formerros/FormErrors";
 import axios from "axios";
+import { isExpired, decodeToken } from "react-jwt";
 import "./login.css";
 
 class Login extends React.Component {
@@ -19,19 +20,26 @@ class Login extends React.Component {
     };
   }
 
+  // let history = useHistory();
+
   componentDidMount() {
-    if (window.localStorage.getItem("token")) {
-      axios.defaults.headers.common[
-        "Authorization"
-      ] = window.localStorage.getItem("token");
-      axios
-        .post("http://localhost:5000/")
-        .then((res) => {
-          if (res.data.status) {
-            this.props.history.push("/home");
-          }
-        })
-        .catch((res) => console.log(res));
+    // console.log("use effect working!");
+    if (!window.localStorage.getItem("token")) {
+      //redirect to login
+      console.log("redirect to login");
+      this.props.history.push("/");
+    }
+    if (window.localStorage.getItem("token")) { 
+      const isMyTokenExpired = isExpired(window.localStorage.getItem("token"));
+      console.log(isMyTokenExpired);
+
+      if(isMyTokenExpired) {
+        console.log("redirect to login");
+        this.props.history.push("/");
+      }
+
+      const myDecodedToken = decodeToken(window.localStorage.getItem("token"));
+      console.log(myDecodedToken);
     }
   }
 
@@ -165,14 +173,8 @@ class Login extends React.Component {
               variant="secondary"
               href="/register"
             >
-              New To ShareVerse?
+              New To ShareVerse, Signup Here?
             </Nav.Link>
-            <Button
-              variant="primary"
-              type="submit"
-            >
-              Sign Up
-            </Button>
           </Form>
         </Container>
       </div>

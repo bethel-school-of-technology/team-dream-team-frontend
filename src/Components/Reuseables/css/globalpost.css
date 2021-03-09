@@ -1,0 +1,16 @@
+.statusBar {
+    width: 90% !important;
+}
+
+.uploadBtn{
+    background-color: #008000 !important;
+    border-radius: 5px;
+    color: white;
+    width: 250px !important;
+    padding: 4px 0 4px 4px !important
+}
+
+.defImg {
+   width: 100% !important;
+   height: 500px !important;
+}

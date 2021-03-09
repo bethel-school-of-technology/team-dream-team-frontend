@@ -27,7 +27,7 @@ class Home extends React.Component {
         "Authorization"
       ] = window.localStorage.getItem("token");
       axios
-        .post("http://localhost:5000/")
+        .get("http://localhost:5000/")
         .then((res) => {
           console.log();
           if (!res.data.status) {

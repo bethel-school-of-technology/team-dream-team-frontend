@@ -16,3 +16,12 @@
     height: 18rem !important;
     background-color: #efefef !important;
 }
+
+.profContainer {
+    height: 50% !important;
+}
+
+.pfdefImg {
+    width: 100%;
+    height: 100%;
+}

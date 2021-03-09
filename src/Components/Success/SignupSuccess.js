@@ -15,14 +15,10 @@ class SignupSuccess extends React.Component {
             <p>You have successfully created your ShareVerse profile.</p>
             <hr />
             <p className="mb-0">
-              Go ahead and login below, and join the spread of Gods Word,
-              together we can make a differnce!
+             Please check you email for a verifction link
             </p>
           </Alert>
           <div className="d-flex justify-content-center">
-            <Button className="submitButton">
-              <Nav.Link className="navSuccess" href="/login">Login To ShareVerse</Nav.Link>
-            </Button>
           </div>
         </Container>
       </div>
