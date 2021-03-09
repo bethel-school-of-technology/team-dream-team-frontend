@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import "./home.css";
+import "./tests/home-test.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navi from "../Navigation/nav";
@@ -11,8 +11,6 @@ import Image from "react-bootstrap/Image";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
 import "../Login/login.css";
-
-
 
 class Home extends React.Component {
   componentDidMount() {
@@ -40,8 +38,6 @@ class Home extends React.Component {
     }
   }
   // ------end login/logout functionality-----------------------------------
-
-
 
   render() {
     return (
@@ -96,6 +92,7 @@ class Home extends React.Component {
                             className="shareVsBtn"
                             variant="success"
                             type="submit"
+                            href="sharewall"
                           >
                             Shared Verse
                           </Button>
