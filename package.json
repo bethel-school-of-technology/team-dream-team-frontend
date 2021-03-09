@@ -10,7 +10,7 @@
     "axios-hooks": "^2.3.0",
     "bootstrap": "^4.6.0",
     "filebase": "^0.0.1",
-    "firebase": "^8.2.9",
+    "firebase": "^8.2.10",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-dom": "^17.0.1",
