@@ -68,3 +68,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Design
+
+/gallery -> lsit of images (data -> local state)
+
+1. in the url
+2. locattions state of react router 
+OR 
+3. grab the id from , make HTTP
+
+/gallery/5676787786 -> image, name , id

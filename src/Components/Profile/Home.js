@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
-import "./tests/home-test.css";
+import "./home.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Navi from "../Navigation/nav";
@@ -18,20 +18,36 @@ import Nav from "react-bootstrap/Nav";
 const Home = () => { 
 
   //const [someProperty, setSomeProperty] = useState([]);
-  const [userBio, setBio] = useState("")
+
+  const [userBio, setBio] = useState([]);
+  const [url, setUrl] = useState([]);
+  const [id, setId] = useState("");
   const history = useHistory();
 
   const loadBio = async () => {
     try{ 
-      let res = await axios.get('http://localhost:5000/displaybio/:id')
+
+      let res = await axios.get(`http://localhost:5000/displaybio/60486cc949884b1fcc403f3e`)
       setBio(res.data.data.userBio)
-      console.log(res.data.data.userBio)
+      // setBio(res.data.map((t) => t.userBio)); 
+      console.log(res)
 
     } catch (err){
       console.log(err)
     }
   }
 
+  const loadProfilePic = async () => {
+    try{ 
+      let res = await axios.get(`http://localhost:5000/geturls`)
+      setUrl(res.data.map((d) => d.url));
+      // setBio(res.data.map((t) => t.userBio)); 
+      console.log(res)
+
+    } catch (err){
+      console.log(err)
+    }
+  }
 
   useEffect(() => {  
       
@@ -52,18 +68,13 @@ const Home = () => {
       console.log(myDecodedToken);
     }
 
-    // fetch('http://localhost:5000/displayBio/:id', {
-    //   method: "GET"
-    // })
-    //   .then(res => res.json())
-    //   .then(response => { setBio(response.item)
+    loadBio()
+    loadProfilePic()
+  }, []);
         
     //   })
     loadBio()
   }, []);
-
-
-
 
   return (
     <div className="Home">
@@ -102,17 +113,19 @@ const Home = () => {
                 <Row>
                   <Col className="d-flex justify-content-center col-12">
                     <div className="profilepic text-center">
-                     Add a Profile Picture here!
+                    {url
+                    .filter((name) => name.includes("lady"))
+                    .map((urlData) => (
+                    <Image className="profilehompic" src={urlData}></Image> 
+                    ))}
                     </div>
                   </Col>
                   <Col className="mt-n5">
                     <div className="col-12 text-center">
                       <Card.Text                
                         className="cardText text-center col-lg-10"
-                        value={userBio}
-                       //onChange={setBio}
-                        
-                      ></Card.Text>
+                        //onChange={setBio}
+                        >{userBio}</Card.Text>
                       <div className="mt-3">
                         <Button
                           className="shareVsBtn"

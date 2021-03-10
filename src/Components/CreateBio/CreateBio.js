@@ -10,9 +10,8 @@ class CreateBio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bioText: null,
+      userBio: "",
     };
-
   }
 
   componentDidMount() {
@@ -42,22 +41,24 @@ class CreateBio extends React.Component {
   handleInput = (e) => {
       const bioText = e.target.value;
       this.setState(() => ({ bioText }));
-      console.log('biotext:i', bioText)
+      console.log('biotext:', bioText)
   };
 
   bioCreateHandler() {
-    axios({
-      method: "POST",
-      url: "http://localhost:5000/createbio",
-      data: {
-        bioText: this.state.bioText,
-      },
-    }).then((response) => {
-      console.log(response.data);
-     
-    });
-  }
 
+    axios
+      .post("http://localhost:5000/createbio",
+      {
+        userBio: this.state.userBio,
+      })
+      .then((res) => {
+        console.log(res);
+
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   render() {
     return (
       <div className="CreateBio">
@@ -92,7 +93,9 @@ class CreateBio extends React.Component {
               variant="secondary"
               type="submit"
               className="submitBtn"
-              onClick={this.bioCreateHandler}
+              // href="/profile_img"
+              // disabled={!this.state.formValid}
+              onClick={this.bioCreateHandler.bind(this)}
             >
               Submit
             </Button>
