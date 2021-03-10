@@ -11,7 +11,7 @@ class CreateBio extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userBio: null,
+      userBio: "",
     };
   }
 
@@ -55,6 +55,7 @@ class CreateBio extends React.Component {
       })
       .then((res) => {
         console.log(res);
+
       })
       .catch((err) => {
         console.log(err);
@@ -100,7 +101,7 @@ class CreateBio extends React.Component {
               variant="secondary"
               type="button"
               className="submitBtn"
-              href="/profile_img"
+              // href="/profile_img"
               // disabled={!this.state.formValid}
               onClick={this.bioCreateHandler.bind(this)}
             >
