@@ -100,6 +100,10 @@ class CreateBio extends React.Component {
                  href="/profile_img">
               Skip this for now?
             </Nav.Link>
+            <Nav.Link className="skipBio text-muted d-flex justify-content-start mt-2" 
+                 href="/home">
+              Straight to my Profile Please!
+            </Nav.Link>
           </Form>
         </Container>
       </div>
