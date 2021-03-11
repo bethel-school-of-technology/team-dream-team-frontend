@@ -24,7 +24,7 @@ const Gallery = () => {
     try {
       let res = await axios.get("http://localhost:5000/geturls");
       console.log(res.data)
-      setUrl(res.data.map(d=>d.url));
+      setUrl(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -68,76 +68,15 @@ const Gallery = () => {
           <span className="text-success"> Gallery</span>
         </h1>
         <Row className="d-flex align-items-center justify-content-center">
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link onClick={() => setActive("cross")}>
-              <Image className="img-fluid" src={`${url}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link onClick={() => setActive("freedom")}>
-              <Image className="img-fluid" src={`${url[1]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[2]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[3]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[4]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[5]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[6]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[7]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[8]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[9]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[10]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[11]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link onClick={() => setActive("waterfall")}>
-              <Image className="img-fluid" src={`${url[12]}`} thumbnail />
-            </Nav.Link>
-          </Col>
-          <Col className="mb-2" xs="12" lg="3">
-            <Nav.Link>
-              <Image className="img-fluid" src={`${url[13]}`} thumbnail />
-            </Nav.Link>
-          </Col>
+        <Col className="mb-2" xs="12" lg="3">
+            {url.map((urlData) => (
+            <Nav.Link  href={`/getinputcross/${urlData._id}`} 
+                      //  onClick={() => setActive("cross")}
+                       >
+           <Image alt="" className="img-fluid" src={urlData.url} thumbnail  />
+           </Nav.Link>
+              ))}
+          </Col> 
         </Row>
       </Container>
     </div>

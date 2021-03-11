@@ -16,7 +16,6 @@ const Cross = () => {
   const [title, setTitleInput] = useState("");
   const [id, setId] = useState("");
   const [url, setUrl] = useState([]);
-  const [name, setName] = useState([]);
 
   const history = useHistory();
 
@@ -29,16 +28,11 @@ const Cross = () => {
       data: {
         body: body,
         title: title,
-        name: name.find(name => name === "cross"),
-        // name.find(name => name.includes("water"))
-        // images: images,
-
+        url: url,
       },
     }).then((response) => {
       setId(response.data.data._id);
-      // setName(response.data.name);
       console.log(response.data);
-      console.log('name', name)
     });
   }
 
@@ -46,21 +40,13 @@ const Cross = () => {
     try {
       let res = await axios.get("http://localhost:5000/geturls");
       console.log(res.data)
-      setUrl(res.data.map(d=>d.url)); // array of urls
-      setName(res.data.map(n=>n.name)); //array of names
+      setUrl(res.data);
+      // setName(res.data.map(n=>n.name)); 
+
     } catch (error) {
       console.log(error);
     }
   };
-
-  const appendToShareWall = async () => {
-    try {
-      
-
-    } catch (error) {
-    console.log(error);
-  }
-}
 
   useEffect(() => {
     // console.log("use effect working!");
@@ -114,13 +100,15 @@ const Cross = () => {
           </Form.Group>
           <div className="">
             <Card className="bg-dark text-white">
-            {name.filter(name => name.includes('cross')).map((urlName) => (
+              <Card.Img href={"getinputcross/6042a4e8ce3e7cb4f873721a"} alt="Card image"/>
+
+            {/* {name.filter(name => name.includes('cross')).map((urlName) => (
             <div>name:{urlName}</div>
-            ))}
+            ))} */}
             
-            {url.filter(name => name.includes('cross')).map((urlData) => (
+            {/* {url.filter(name => name.includes('cross')).map((urlData) => (
             <Card.Img name={url.name} src={urlData} alt="Card image" />
-            ))}
+            ))} */}
               <Card.ImgOverlay> 
                 <Card.Title className="text-center mt-5">
                   <h1>{title}</h1>
@@ -138,7 +126,6 @@ const Cross = () => {
               <div>
               <Button
                 className=" saveImageBtn mt-3"
-                onclick={appendToShareWall}
                 href={`http://localhost:3000/getinputcross/${id}`}
 
               >
