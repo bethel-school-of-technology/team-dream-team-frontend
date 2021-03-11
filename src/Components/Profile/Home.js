@@ -74,7 +74,6 @@ const Home = () => {
         
     //   })
     loadBio()
-  }, []);
 
   return (
     <div className="Home">
