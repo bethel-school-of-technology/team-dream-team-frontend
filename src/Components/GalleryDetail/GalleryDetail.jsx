@@ -1,58 +1,51 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
-import Input from "../../Reuseables/reusableInput/Input";
+import Input from "../Reuseables/reusableInput/Input";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 
-import Navi from "../../Navigation/nav";
+import Navi from "../Navigation/nav";
 import axios from "axios";
 
-const GetCross = ({ match }) => {
+const GalleryDetail = () => {
   const [body, setBodyInput] = useState("");
-  const [title, setTitleInput] = useState("");
-  const [name, setName] = useState([]);
   const [url, setUrl] = useState([]);
   const [id, setId] = useState("");
   const history = useHistory();
+  const { imageId } = useParams();
+  const urlData = history.location.state.urlData;
 
   //gets data from inputs and sends to backend
   function makeRequest(e) {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:5000/getinput",
+      url: "http://localhost:5000/postinput",
       data: {
         body: body,
-        title: title,
-        url: url,
-        // name: name.find(name => name === "cross"),
+        url: urlData.url,
       },
     }).then((response) => {
       setId(response.data.data._id);
-      // setName(response.data.name);
       console.log(response.data);
-      // console.log('name', name)
     });
   }
   const loadImage = async () => {
     try {
-      let res = await axios.get(`http://localhost:5000/geturls/${(match.params.id)}`);
-      console.log(res.data)
-      setUrl(res.data.map(u=>u.url)); // array of urls
-      // setName(res.data.map(n=>n.name)); //array of names
+      let res = await axios.get(`http://localhost:5000/geturls/${imageId}`);
+      console.log(res.data);
+      setUrl(res.data.map((u) => u.url)); 
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    // console.log("use effect working!");
     if (!window.localStorage.getItem("token")) {
-      //redirect to login
       console.log("redirect to login");
       history.push("/");
     }
@@ -64,7 +57,6 @@ const GetCross = ({ match }) => {
         console.log("redirect to login");
         history.push("/");
       }
-
       const myDecodedToken = decodeToken(window.localStorage.getItem("token"));
       console.log(myDecodedToken);
     }
@@ -75,24 +67,15 @@ const GetCross = ({ match }) => {
     <div className="getcross">
       <Container className="mt-5 ml-auto mr-auto">
         <Navi />
-        <h1 className="text-center"> Post to
+        <h1 className="text-center">
+          Post to
           <span className="text-success"> ShareVerse</span>
         </h1>
         <Form className="shadow p-3 mb-5 bg-white rounded">
           <Form.Group controlId="formBasicVerse">
             <Form.Label>
-              <h5>Verse Title</h5>
-            </Form.Label>
-            <Input
-              setInputValue={setTitleInput}
-              inputValue={title}
-              inputName={"title"}
-              inputType={"text"}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicVerse">
-            <Form.Label>
-              <h5>Verse Body:</h5>
+              <Card.Text className="text-muted">
+                Write your bible verse here and let your creativity flow </Card.Text>
             </Form.Label>
             <Input
               setInputValue={setBodyInput}
@@ -103,17 +86,8 @@ const GetCross = ({ match }) => {
           </Form.Group>
           <div className="shadow p-3 mb-5 bg-white rounded">
             <Card className="bg-dark shadow text-white">
-            {url.map((urlData) => (
-            <Image src={urlData._id} alt="Card image" />
-            ))}
-
-            {/* {url.filter(name => name.includes('cross')).map((urlData) => (
-            <Card.Img name={url.name} src={urlData} alt="Card image" />
-            ))} */}
+              { <Image src={urlData.url} alt="Card image" />} 
               <Card.ImgOverlay>
-                <Card.Title className="text-center mt-5">
-                  <h1>{title}</h1>
-                </Card.Title>
                 <Card.Title className="text-center mt-5">{body}</Card.Title>
               </Card.ImgOverlay>
             </Card>
@@ -123,12 +97,13 @@ const GetCross = ({ match }) => {
               className=" saveImageBtn mt-3"
               type="submit"
               onClick={makeRequest}
+              
             >
               Save
             </Button>
             <Button
               className=" saveImageBtn mt-3"
-              href={`http://localhost:3000/getinputcross/${id}`}
+              href={`/sharewall`}
             >
               View Post!
             </Button>
@@ -139,6 +114,4 @@ const GetCross = ({ match }) => {
   );
 };
 
-// test link: http://localhost:3000/getverse/6021ef044a42be4388eee4ed
-
-export default GetCross;
+export default GalleryDetail;

@@ -16,27 +16,15 @@ import Gallery from "./Components/Gallery/Gallery";
 import UploadGalmg from "./Components/Reuseables/UploadGaImg";
 import TestShareWallComp from "./Components/ShareWall/tests/TestShareWallComp";
 import ShareWallComp from "./Components/ShareWall/ShareWallComp";
+import GalleryDetail from './Components/GalleryDetail/GalleryDetail';
 
 // import GreenMount from "./Components/Gallery/components/GreenMount";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
-//gallery imports
-import Cross from "./Components/Gallery/posts/Cross";
-import Waterfall from "./Components/Gallery/posts/Waterfall";
-import Freedom from "./Components/Gallery/posts/Freedom";
-
-import CrossPost from "./Components/Gallery/get/CrossPost";
-import WaterfallPost from "./Components/Gallery/get/WaterfallPost";
-import FreedomPost from "./Components/Gallery/get/FreedomPost";
 
 function App() {
-  const imagePostRoutes = [
-    { name: "cross", component: CrossPost },
-    { name: "freedom", component: FreedomPost },
-    { name: "waterfall", component: WaterfallPost },
-  ];
 
   return (
     <div className="App">
@@ -51,6 +39,7 @@ function App() {
           <Route exact path={"/createbio"} component={CreateBio} />
           <Route exact path={"/profile_img"} component={ProfileImg} />
           <Route exact path={"/gallery"} component={Gallery} />
+          <Route exact path="/gallery/:imageId" component={GalleryDetail} />
           <Route exact path={"/postverse"} component={PostVerse} />
           <Route exact path={"/getimage/:id"} component={GetPostVerse} />
           <Route exact path={"/create"} component={PostVerse} />
@@ -60,20 +49,6 @@ function App() {
 
           <Route path={"/upload"} component={UploadGalmg} />
 
-          {/* routes for gallery */}
-          <Route path={"/waterfall"} component={Waterfall} />
-          <Route path={"/cross"} component={Cross} />
-          <Route path={"/freedom"} component={Freedom} />
-
-          {/* <Route path={"/getinputwaterfall/:id"} component={WaterfallPost} />
-          <Route path={"/getinputcross/:id"} component={CrossPost} />
-          <Route path={"/getinputfreedom/:id"} component={FreedomPost} /> */}
-
-          {imagePostRoutes.map(({ component, name }) => (
-            <Route
-              key={name} path={`/getinput${name}/:id`} component={component}
-            />
-          ))}
         </Switch>
       </Router>
     </div>

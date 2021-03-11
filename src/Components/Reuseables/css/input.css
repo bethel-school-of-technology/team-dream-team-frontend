@@ -13,3 +13,10 @@
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
+.comment {
+    width: 100% !important;
+    color: rgba(54, 51, 52, 0.486) !important;
+    height: 65px !important;
+    border: 1px solid #94929286 !important;
+}
