@@ -45,7 +45,7 @@ class CreateBio extends React.Component {
       console.log('biotext:i', bioText)
   };
 
-  bioCreateHandler() {
+  bioCreateHandler(e) {
     axios({
       method: "POST",
       url: "http://localhost:5000/createbio",
