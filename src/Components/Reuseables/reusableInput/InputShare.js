@@ -5,7 +5,7 @@ import '../css/input.css';
 // dynamic inputs
 const Input = ({ inputType, inputValue, inputName, setInputValue }) => (
     <textarea 
-    className="inputField"
+    className="comment mb-3"
     type={inputType}
     value={inputValue}
     name={inputName}

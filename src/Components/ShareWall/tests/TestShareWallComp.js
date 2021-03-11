@@ -5,7 +5,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 // import Nav from "react-bootstrap/Nav";
-import "../sharewall.css";
+import "../css/sharewall.css";
 
 const ShareWallComp = () => {
   return (

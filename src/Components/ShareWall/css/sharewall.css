@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+
+.card-header {
+    height: 320px !important;
+}
+
+.sharecont {
+    height: 250px !important;
+    background-color: rgb(255, 255, 255) !important;
+    border: 1px solid #94929286 !important;
+    font-size: 40px !important;
+    margin-top: 40px !important;
+    color:darkgoldenrod !important;
+}
+
+.cb {
+    padding: 0 !important}
+
+.cardStyle{
+    padding: 5% 25px;
+    font: 2rem Redressed;
+    text-shadow: black 2px 2px 8px;
+}
+
+/* .overlay{
+    border: 2px white solid
+} */
+
+.shareButton{
+    width: 100px !important;
+    height: 35px !important;
+}
+
+
+@media (max-width: 775.98px) {
+    .cardStyle{
+        font: 1.5rem Redressed;
+    }
+ }
