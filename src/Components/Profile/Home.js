@@ -18,6 +18,7 @@ import Nav from "react-bootstrap/Nav";
 const Home = () => { 
 
   //const [someProperty, setSomeProperty] = useState([]);
+
   const [userBio, setBio] = useState([]);
   const [url, setUrl] = useState([]);
   const [id, setId] = useState("");
@@ -25,6 +26,7 @@ const Home = () => {
 
   const loadBio = async () => {
     try{ 
+
       let res = await axios.get(`http://localhost:5000/displaybio/60486cc949884b1fcc403f3e`)
       setBio(res.data.data.userBio)
       // setBio(res.data.map((t) => t.userBio)); 
@@ -65,12 +67,14 @@ const Home = () => {
       const myDecodedToken = decodeToken(window.localStorage.getItem("token"));
       console.log(myDecodedToken);
     }
+
     loadBio()
     loadProfilePic()
   }, []);
-
-
-
+        
+    //   })
+    loadBio()
+  }, []);
 
   return (
     <div className="Home">

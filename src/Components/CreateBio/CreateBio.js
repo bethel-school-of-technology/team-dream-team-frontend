@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-//import { FormErrors } from "./FormErrors";
 import "./CreateBio.css";
 import axios from "axios";
 
@@ -31,7 +30,6 @@ class CreateBio extends React.Component {
         .then((res) => {
           console.log();
           if (!res.data.status === "Login was successful" && 200) {
-            //window.location.href = window.location.toString() + "/home";
             console.log("redirct to login");
             this.props.history.push("/createbio");
           }
@@ -39,15 +37,15 @@ class CreateBio extends React.Component {
         .catch((res) => console.log(res));
     }
   }
-
-  handleUserInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;    
-    this.setState({ [name]: value }, () => {
-    });
+  
+  handleInput = (e) => {
+      const bioText = e.target.value;
+      this.setState(() => ({ bioText }));
+      console.log('biotext:', bioText)
   };
 
   bioCreateHandler() {
+
     axios
       .post("http://localhost:5000/createbio",
       {
@@ -61,11 +59,6 @@ class CreateBio extends React.Component {
         console.log(err);
       });
   }
-
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
   render() {
     return (
       <div className="CreateBio">
@@ -78,10 +71,8 @@ class CreateBio extends React.Component {
           <Form
             className="shadow p-3 mb-5 bg-white rounded"
             id="bioinput-form"
-            // onSubmit={this.bioCreateHandler.bind(this)}
-            // method="POST"
           >
-            {/* <FormErrors formErrors={this.state.formErrors} /> */}
+          
             <Form.Group controlId="formBasicbio">
               <Form.Label>
                 Let us know what the Lord has done in your life:
@@ -89,17 +80,18 @@ class CreateBio extends React.Component {
               <Form.Control
                 as="textarea"
                 className="bioInput d-flex align-items-start"
+                onChange={this.handleInput}
+                value={this.bioText}
                 type="text"
-                defaultValue={this.state.userBio}
-                onChange={this.handleChange}
-                name="userBio"
+                name="bio"
+                required
                 placeholder="Tell us a little about yourself."
               />
             </Form.Group>
 
             <Button
               variant="secondary"
-              type="button"
+              type="submit"
               className="submitBtn"
               // href="/profile_img"
               // disabled={!this.state.formValid}
@@ -108,13 +100,13 @@ class CreateBio extends React.Component {
               Submit
             </Button>
             <Nav.Link className="skipBio text-muted d-flex justify-content-start mt-2" 
-                      href="/profile_img" 
-                      >
+                 href="/profile_img">
               Skip this for now?
             </Nav.Link>
-            {/* <Button type="submit" href="/home-test">
-              Go to Profile
-            </Button> */}
+            <Nav.Link className="skipBio text-muted d-flex justify-content-start mt-2" 
+                 href="/home">
+              Straight to my Profile Please!
+            </Nav.Link>
           </Form>
         </Container>
       </div>
