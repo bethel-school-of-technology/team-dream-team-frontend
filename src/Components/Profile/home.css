@@ -46,7 +46,7 @@
 
 .cardText {
     background-color: rgb(255, 254, 253) !important;
-    width: 60vw;
+    width: 100% !important;
     height: 80px;
     border: 2px #00800052 solid;
     padding-top: 12px;
