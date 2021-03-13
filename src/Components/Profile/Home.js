@@ -72,7 +72,12 @@ const Home = () => {
     loadProfilePic()
   }, []);
         
+<<<<<<< HEAD
 
+=======
+    //   })
+    loadBio()
+>>>>>>> 3378082823092a37b434971972cde202f660d607
 
   return (
     <div className="Home">

@@ -9,16 +9,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
-import Cross from "./posts/Cross";
-import Waterfall from "./posts/Waterfall";
-import Freedom from "./posts/Freedom";
 
 import axios from "axios";
 
 const Gallery = () => {
   const [url, setUrl] = useState([]);
   const history = useHistory();
-  const [active, setActive] = useState("");
 
   const loadImage = async () => {
     try {
@@ -58,10 +54,6 @@ const Gallery = () => {
           <Navi />
         </div>
         <div>
-          {active === "waterfall" && <Waterfall />}
-          {active === "cross" && <Cross />}
-          {active === "freedom" && <Freedom />}
-
         </div>
         <h1 className="text-center">
           ShareVerse
@@ -70,8 +62,15 @@ const Gallery = () => {
         <Row className="d-flex align-items-center justify-content-center">
         <Col className="mb-2" xs="12" lg="3">
             {url.map((urlData) => (
-            <Nav.Link  href={`/getinputcross/${urlData._id}`} 
-                      //  onClick={() => setActive("cross")}
+            <Nav.Link  
+            onClick={() =>
+              history.push({
+                pathname: `/gallery/${urlData._id}`,
+                state: {
+                  urlData,
+                },
+              })
+            }
                        >
            <Image alt="" className="img-fluid" src={urlData.url} thumbnail  />
            </Nav.Link>
