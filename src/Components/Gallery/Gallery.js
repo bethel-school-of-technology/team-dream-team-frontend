@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
-import Navi from "../Navigation/nav";
+import Navcp from "../Navigation/navcp";
 import "../Gallery/css/gallery.css";
-
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -19,7 +18,7 @@ const Gallery = () => {
   const loadImage = async () => {
     try {
       let res = await axios.get("http://localhost:5000/geturls");
-      console.log(res.data)
+      console.log(res.data);
       setUrl(res.data);
     } catch (error) {
       console.log(error);
@@ -44,39 +43,42 @@ const Gallery = () => {
       console.log(myDecodedToken);
     }
     loadImage();
-  },[history]);
-
+  }, [history]);
 
   return (
     <div className="postverse">
       <Container className="mt-5 ml-auto mr-auto">
         <div className="mb-4 mt-4">
-          <Navi />
+          <Navcp />
         </div>
-        <div>
-        </div>
+        <div></div>
         <h1 className="text-center">
           ShareVerse
           <span className="text-success"> Gallery</span>
         </h1>
-        <Row className="d-flex align-items-center justify-content-center">
-        <Col className="mb-2" xs="12" lg="3">
+        <div>
+          <Col className="mb-12" xs="12" lg="12">
             {url.map((urlData) => (
-            <Nav.Link  
-            onClick={() =>
-              history.push({
-                pathname: `/gallery/${urlData._id}`,
-                state: {
-                  urlData,
-                },
-              })
-            }
-                       >
-           <Image alt="" className="img-fluid" src={urlData.url} thumbnail  />
-           </Nav.Link>
-              ))}
-          </Col> 
-        </Row>
+              <Nav.Link
+                onClick={() =>
+                  history.push({
+                    pathname: `/gallery/${urlData._id}`,
+                    state: {
+                      urlData,
+                    },
+                  })
+                }
+              >
+                <Image
+                  alt=""
+                  className="img-fluid"
+                  src={urlData.url}
+                  thumbnail
+                />
+              </Nav.Link>
+            ))}
+          </Col>{" "}
+        </div>
       </Container>
     </div>
   );
@@ -84,12 +86,10 @@ const Gallery = () => {
 
 export default Gallery;
 
-          // <Col className="mb-2" xs="12" lg="3">
-          //   <Nav.Link href="/waterfall">
-          //   {url.map((urlData) => (
-          //   <Image alt="" className="img-fluid" src={urlData} thumbnail  />
-          //     ))}
-          //   </Nav.Link>
-          // </Col> 
-
-
+// <Col className="mb-2" xs="12" lg="3">
+//   <Nav.Link href="/waterfall">
+//   {url.map((urlData) => (
+//   <Image alt="" className="img-fluid" src={urlData} thumbnail  />
+//     ))}
+//   </Nav.Link>
+// </Col>

@@ -7,6 +7,8 @@ import Col from "react-bootstrap/Col";
 import axios from "axios";
 import { storage } from "../../Config/firebase-config";
 import DefaultImage from "../../assets/default-image.jpg";
+import Navcp from "../Navigation/navcp";
+
 import "./profileimg.css";
 
 class ProfileImg extends React.Component {
@@ -83,6 +85,9 @@ class ProfileImg extends React.Component {
     return (
       <div className="profileimg">
         <Container className="profContainer rounded mt-5 ml-auto mr-auto shadow">
+          <div className="mb-2 pt-4">
+            <Navcp />
+          </div>
           <h1 className="text-center">
             Upload
             <span className="text-success"> Your Profile Image</span>
@@ -102,9 +107,6 @@ class ProfileImg extends React.Component {
                     type="file"
                     onChange={this.handleChange}
                   />
-                  <Button onClick={this.handleUpload} className="ml-2">
-                    View
-                  </Button>
                 </div>
               </Col>
             </Row>
@@ -113,15 +115,13 @@ class ProfileImg extends React.Component {
               src={this.state.url || DefaultImage}
               alt="Uploaded Images"
             />
-            <div className="d-flex justify-content-start mt-3">
-              <Button variant="primary" type="submit" className="submitBtn">
-                Submit
-              </Button>
-            </div>
+            <Button onClick={this.handleUpload} className="uplaodBtn mt-2">
+              Upload Image
+            </Button>
             <div className="skipBio text-muted d-flex justify-content-start mt-2">
               Skip this for now?
             </div>
-            <Button className="mb-3" type="submit" href="/home-test">
+            <Button className="gotoBtn mb-3" type="submit" href="/home">
               Go to Profile
             </Button>
           </Form>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+
 .img-thumbnail {
     width: 200% !important;
 }
@@ -7,8 +9,24 @@
     zoom: 1%;
 }
 
-/* .galleryImg {
-    width: 100% !important;
-    height: 500px !important;
-    background-color: cadetblue !important;
-} */
+.saveImageBtn {
+    width: 150px !important;
+}
+
+.galleryBody {
+    padding: 3% 25px;
+    font: 3rem Redressed !important;
+    text-shadow: black 2px 2px 8px; 
+}
+
+@media (min-width: 555.98px) {
+    .galleryBody{
+        font: 1.5rem Redressed !important;
+    }
+ }
+
+ @media (min-width: 755.98px) {
+    .galleryBody{
+        font: 2rem Redressed !important;
+    }
+ }
