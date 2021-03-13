@@ -21,18 +21,18 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path={"/"} component={Login} />
-          <Route exact path={"/home"} component={Home} />
-          <Route exact path={"/nav"} component={Navi} />
-          <Route exact path={"/register"} component={SignUp} />
-          <Route exact path={"/success"} component={SignupSuccess} />
-          <Route exact path={"/createbio"} component={CreateBio} />
-          <Route exact path={"/profile_img"} component={ProfileImg} />
-          <Route exact path={"/gallery"} component={Gallery} />
+          <Route exact path="/" component={Login} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/nav" component={Navi} />
+          <Route exact path="/register" component={SignUp} />
+          <Route exact path="/success" component={SignupSuccess} />
+          <Route exact path="/createbio" component={CreateBio} />
+          <Route exact path="/profile_img" component={ProfileImg} />
+          <Route exact path="/gallery" component={Gallery} />
           <Route exact path="/gallery/:imageId" component={GalleryDetail} />
-          <Route path={"/sharewall"} component={ShareWallComp} />
-          <Route path={"/options"} component={Options} />
-          <Route path={"/upload"} component={UploadGalmg} />
+          <Route path="/sharewall" component={ShareWallComp} />
+          <Route path="/options" component={Options} />
+          <Route path="/upload" component={UploadGalmg} />
         </Switch>
       </Router>
     </div>

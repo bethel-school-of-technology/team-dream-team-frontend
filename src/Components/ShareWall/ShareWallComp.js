@@ -27,7 +27,7 @@ const ShareWallComp = () => {
       console.log(myDecodedToken);
     }
     // loadimg();
-  }, []);
+  }, [history]);
 
   return (
     <div className="getcross">
@@ -39,7 +39,7 @@ const ShareWallComp = () => {
           ShareVerse
           <span className="text-success"> Wall</span>
         </h1>
-          <div className="p-3 mb-5 bg-light rounded">
+          <div className=" holder p-3 mb-5 rounded">
              <div className="text-center"><Cards />
            </div>
           </div>

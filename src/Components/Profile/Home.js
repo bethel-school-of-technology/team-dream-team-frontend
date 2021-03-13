@@ -99,10 +99,10 @@ const Home = () => {
                     <div className="profilepic text-center">
                       {url
                         .filter((name) => name.includes("lady"))
-                        .map((urlData) => (
+                        .map((postData) => (
                           <Image
                             className="profilehompic"
-                            src={urlData}
+                            src={postData}
                           ></Image>
                         ))}
                     </div>
