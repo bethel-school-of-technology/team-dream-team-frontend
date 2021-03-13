@@ -17,20 +17,38 @@
     padding: 0 !important}
 
 .cardStyle{
-    padding: 5% 25px;
+    padding: 15% 0 !important;
     font: 2rem Redressed;
     text-shadow: black 2px 2px 8px;
+    width: 550px !important;
+    height: 50px !important;
+    text-align: justify !important;
+    text-transform: capitalize !important;
+
 }
 
-/* .overlay{
-    border: 2px white solid
-} */
+.cardTextC{
+    margin: 0 !important;
+}
 
 .shareButton{
     width: 100px !important;
     height: 35px !important;
 }
 
+.overlay{
+    height: 50px !important;
+}
+
+.footer,
+.card {
+    border: 0 !important;
+}
+
+.footer {
+    background-color: #f1f2f3 !important;
+    border-radius: 5px !important;
+}
 
 @media (max-width: 775.98px) {
     .cardStyle{

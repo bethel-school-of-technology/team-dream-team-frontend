@@ -17,3 +17,13 @@
 .navSuccess:hover {
     color: #e2f1e5 !important;
 }
+
+.successLink {
+    color: #0f3ea1 !important;
+    font-weight: 600 !important;
+}
+
+.successLink:hover {
+    color: #809ddb !important;
+}
+

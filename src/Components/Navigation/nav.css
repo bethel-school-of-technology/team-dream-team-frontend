@@ -26,3 +26,8 @@
 .navbar-light .navbar-toggler {
   background-color: #dcd8d8 !important;
 }
+
+.logoutBtnn{
+  float: right !important;
+  width: 80px !important;
+}

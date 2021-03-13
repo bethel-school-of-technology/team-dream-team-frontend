@@ -15,7 +15,7 @@ class SignupSuccess extends React.Component {
             <p>You have successfully created your ShareVerse profile.</p>
             <hr />
             <p className="mb-0">
-             Please check you email for a verifction link
+             Please check you email for a verifction link and <a className="successLink" href="/">login after you verify</a> .
             </p>
           </Alert>
           <div className="d-flex justify-content-center">

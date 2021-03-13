@@ -25,6 +25,10 @@
     background-color: rgb(2, 102, 2) !important
 }
 
+.postSubBtn {
+    width: 250px !important;
+}
+
 .logoutBtn {
     width: 80px !important;
     height: 28px !important;
