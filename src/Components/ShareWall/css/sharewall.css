@@ -1,7 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital@0;1&display=swap');
 
 .card-header {
     height: 320px !important;
+}
+
+.holder {
+    background-color: #eae8e8 !important;
 }
 
 .sharecont {
@@ -18,8 +22,9 @@
 
 .cardStyle{
     padding: 15% 0 !important;
-    font: 2rem Redressed;
-    text-shadow: black 2px 2px 8px;
+    font: 1.8rem Acme;
+    font-style: italic !important;
+    text-shadow: rgb(10, 22, 75) 0px 0px 12px;
     width: 550px !important;
     height: 50px !important;
     text-align: justify !important;
@@ -52,6 +57,6 @@
 
 @media (max-width: 775.98px) {
     .cardStyle{
-        font: 1.5rem Redressed;
+        font: 1.5rem Acme;
     }
  }

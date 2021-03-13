@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital@0;1&display=swap');
 
 .img-thumbnail {
     width: 200% !important;
@@ -15,18 +16,18 @@
 
 .galleryBody {
     padding: 3% 25px;
-    font: 3rem Redressed !important;
+    font: 3rem Acme !important;
     text-shadow: black 2px 2px 8px; 
 }
 
 @media (min-width: 555.98px) {
     .galleryBody{
-        font: 1.5rem Redressed !important;
+        font: 1.5rem Acme !important;
     }
  }
 
  @media (min-width: 755.98px) {
     .galleryBody{
-        font: 2rem Redressed !important;
+        font: 2rem Acme !important;
     }
  }
