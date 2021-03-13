@@ -89,7 +89,7 @@ const Home = () => {
                   <Navi />
                 </div>
                 <h1>
-                  Welcome Back <span className="text-success">Username</span>
+                  Welcome <span className="text-success">Sarah</span>
                 </h1>
               </Card.Title>
 
@@ -129,7 +129,7 @@ const Home = () => {
                           type="submit"
                           href="/sharewall"
                         >
-                          Shared Verse
+                          Share Verse Wall
                         </Button>
                       </div>
                     </div>

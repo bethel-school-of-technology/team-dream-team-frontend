@@ -22,10 +22,11 @@
 
 .postSubBtn:hover,
 .shareVsBtn:hover {
-    background-color: rgb(2, 102, 2) !important
+    background-color: rgb(2, 102, 2) !important;
 }
 
-.postSubBtn {
+.postSubBtn,
+.shareVsBtn {
     width: 250px !important;
 }
 
