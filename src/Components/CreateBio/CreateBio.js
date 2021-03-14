@@ -17,7 +17,7 @@ const CreateBio = () => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:5000/createbio",
+      url: "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/createbio",
       data: {
         userBio: userBio
       },

@@ -90,7 +90,7 @@ class Signup extends React.Component {
 
     axios({
       method: "POST",
-      url: "http://localhost:5000/register",
+      url: "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/register",
       data: this.state,
     }).then((response) => {
       console.log(response.data);

@@ -94,7 +94,7 @@ class Login extends React.Component {
 
     axios
       .post(
-        "http://localhost:5000/",
+        "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/",
         {
           email: this.state.email,
           password: this.state.password,

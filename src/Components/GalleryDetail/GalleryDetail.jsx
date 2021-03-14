@@ -23,7 +23,7 @@ const GalleryDetail = () => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:5000/postinput",
+      url: "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/postinput",
       data: {
         body: body,
         url: urlData.url,
@@ -35,7 +35,7 @@ const GalleryDetail = () => {
   }
   const loadImage = async () => {
     try {
-      let res = await axios.get(`http://localhost:5000/geturls/${imageId}`);
+      let res = await axios.get(`http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/geturls/${imageId}`);
       console.log(res.data);
       setUrl(res.data.map((u) => u.url));
     } catch (error) {
