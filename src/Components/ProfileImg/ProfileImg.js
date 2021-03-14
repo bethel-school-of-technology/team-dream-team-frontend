@@ -69,7 +69,7 @@ class ProfileImg extends React.Component {
         "Authorization"
       ] = window.localStorage.getItem("token");
       axios
-        .post("http://localhost:5000/profile_img")
+        .post("http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/profile_img")
         .then((res) => {
           console.log();
           if (!res.data.status === "Login was successful" && 200) {
