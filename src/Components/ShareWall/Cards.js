@@ -5,84 +5,78 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "./css/sharewall.css";
 
-const ComponentName = () => {
+const Cards = () => {
   const [posts, setPosts] = useState([]);
-  const [comment, setComment] = useState("");
-  const [id, setId] = useState("");
+  const [comment, setComment] = useState(""); 
+  const [_id, set_id] = useState("");
 
-  const loadData = async () => {
+  const loadPosts = async () => {
     try {
-      let res = await axios.get(`http://localhost:5000/getall`);
-      setPosts(res.data);
+      let res = await axios.get(`http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/getall`);
+      setPosts(res.data.reverse());
     } catch (error) {
       console.log(error);
     }
   };
 
-  function makeRequest(e) {
+  function saveComment(e, _id) {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://localhost:5000/postinput",
+      url: "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/savecomment",
       data: {
+        _id: _id,
         comment: comment,
       },
-    }).then((res) => {
-      setComment(res.data.comment);
-      console.log(res.data);
-    });
+    })
+      .then((res) => {
+        loadPosts()
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
-  const loadComment = async () => {
-    try {
-      let res = await axios.post("http://localhost:5000/postinput");
-      setComment(res.data.comment._id);
-      console.log(res.data.comment._id)
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    loadData();
+    loadPosts();
   }, []);
 
   return (
     <div className="compoentclass">
       <Container className="mt-5 ml-auto mr-auto">
         <div className="text-center">
-          {posts.map((post, index) => (
-            <div>
-              <Card className="">
+          {posts.map((post) => (
+            post.url && <div key={post._id}>
+              <Card>
                 <Card.Img alt="" src={post.url} />
                 <Card.ImgOverlay className="overlay">
-                  <Card.Title className="text-center mt-5">
+                  <Card.Title className="d-flex justify-content-center align-items-center">
                     <Card.Text className="cardStyle text-light">
                       {post.body}
                     </Card.Text>
                   </Card.Title>
                 </Card.ImgOverlay>
               </Card>
-              {posts.map((post, index) => (
-              <div><Card.Text>{post.comment}</Card.Text></div>
-              ))}
+              <Card.Footer className="footer mt-3 mb-1">
+                <Card.Text>{post.comment}</Card.Text>
+              </Card.Footer>
               <textarea
-              className="comment text-center mt-3 mb-3"
-              onChange={e => setComment(e.target.value)}
-              value={comment}
-              name={"comment"}
-              type={"text"}
-            />
-              <div className="d-flex justify-content-start mt-n3 mb-4">
+                className="comment text-center mt-3 mb-3"
+                placeholder="Write your comment her!"
+                onChange={(e) => setComment(e.target.value)}
+                name="comment"
+                type="text"
+              />
+              <div className="cardButton d-flex justify-content-start mb-4">
                 <Button
                   className="shareButton"
                   variant="secondary"
-                  onClick={makeRequest}
-                  onChange={loadComment}
+                  onClick={(e) => saveComment(e, post._id)
+                  }
                 >
                   Comment
                 </Button>
-              </div>
+              </div> 
             </div>
           ))}
         </div>
@@ -91,4 +85,4 @@ const ComponentName = () => {
   );
 };
 
-export default ComponentName;
+export default Cards;

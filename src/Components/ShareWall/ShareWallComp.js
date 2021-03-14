@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { isExpired, decodeToken } from "react-jwt";
-import Navi from "../Navigation/nav";
-import Card from "react-bootstrap/Card";
+import Navcp from "../Navigation/navcp";
 import Container from "react-bootstrap/Container";
 import "./css/sharewall.css";
-import axios from "axios";
 import Cards from "./Cards";
 
 const ShareWallComp = () => {
@@ -29,20 +27,21 @@ const ShareWallComp = () => {
       console.log(myDecodedToken);
     }
     // loadimg();
-  }, []);
+  }, [history]);
 
   return (
     <div className="getcross">
       <Container className=" mt-5 ml-auto mr-auto">
         <div className="mt-4">
-          <Navi />
+          <Navcp />
         </div>
         <h1 className="text-center">
           ShareVerse
           <span className="text-success"> Wall</span>
         </h1>
-          <div className="p-3 mb-5 bg-light rounded">
-             <div className="text-center"><Cards /></div>
+          <div className=" holder p-3 mb-5 rounded">
+             <div className="text-center"><Cards />
+           </div>
           </div>
       </Container>
     </div>

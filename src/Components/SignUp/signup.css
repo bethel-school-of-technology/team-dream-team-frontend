@@ -29,6 +29,7 @@
 .signupSubmitBtn {
   background-color: #008000 !important;
   color:rgb(231, 225, 225) !important;
+  width: 200px !important;
 }
 
 .signupText {
