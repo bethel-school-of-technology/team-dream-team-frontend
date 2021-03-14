@@ -171,7 +171,7 @@ class Login extends React.Component {
             <Nav.Link
               className="navLogin text-muted d-flex justify-content-start"
               variant="secondary"
-              href="/register"
+              href="https://hopeful-tesla-93a5b9.netlify.app/register"
             >
               New To ShareVerse, Signup Here?
             </Nav.Link>
