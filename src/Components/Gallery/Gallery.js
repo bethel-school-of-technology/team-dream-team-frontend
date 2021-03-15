@@ -5,7 +5,6 @@ import Navcp from "../Navigation/navcp";
 import "../Gallery/css/gallery.css";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Nav from "react-bootstrap/Nav";
 
@@ -26,9 +25,7 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    // console.log("use effect working!");
     if (!window.localStorage.getItem("token")) {
-      //redirect to login
       console.log("redirect to login");
       history.push("/");
     }
@@ -86,10 +83,3 @@ const Gallery = () => {
 
 export default Gallery;
 
-// <Col className="mb-2" xs="12" lg="3">
-//   <Nav.Link href="/waterfall">
-//   {url.map((urlData) => (
-//   <Image alt="" className="img-fluid" src={urlData} thumbnail  />
-//     ))}
-//   </Nav.Link>
-// </Col>

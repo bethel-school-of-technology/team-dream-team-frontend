@@ -109,7 +109,8 @@ const Home = () => {
                   </Col>
                   <Col className="mt-n5">
                     <div className="col-12 text-center">
-                      <div className=" d-flex justify-content-center"><Card.Text className="cardText text-center col-lg-10">
+                      <div className=" d-flex justify-content-center">
+                        <Card.Text className="cardText text-center align-items-center col-lg-10">
                         {userBio}
                       </Card.Text></div>
                       

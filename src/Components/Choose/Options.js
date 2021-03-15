@@ -15,8 +15,9 @@ const Options = () => {
         <Form>
           <Card className="option_profileCard">
             <Card.Body>
-              <Container>
-              <h1 className="text-center">
+              <Container className="optionContainer">
+              <Row className="optionRow"></Row>
+              <h1 className="textHeader text-center">
                   How Would You <span className="text-success ">Like To Share?</span>
                 </h1>
                 <Row>
@@ -45,6 +46,7 @@ const Options = () => {
                     </div>
                   </Col>
                 </Row>
+                <Row className="optionRow"></Row>
               </Container>
             </Card.Body>
           </Card>

@@ -55,6 +55,13 @@
     border-radius: 5px !important;
 }
 
+@media (max-width: 575.98px) { 
+    .imgCard {
+        height: 311px !important;
+    }
+ }
+
+
 @media (max-width: 775.98px) {
     .cardStyle{
         font: 1.5rem Acme;
