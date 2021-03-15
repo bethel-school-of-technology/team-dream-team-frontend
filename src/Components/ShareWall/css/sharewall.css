@@ -1,69 +1,128 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Slab:ital@0;1&display=swap");
+
+.navBarCp {
+    background-color: #efeeee !important;
+    justify-content: start !important;
+    border-bottom-style: double !important;
+    border-color: green !important;
+    border-width: 1px !
+  }
+
+.imgCard {
+  height: 911px !important;
+}
 
 .card-header {
-    height: 320px !important;
+  height: 320px !important;
 }
 
 .holder {
-    background-color: #eae8e8 !important;
+  background-color: #eae8e8 !important;
+  width: 615px !important;
+  margin: 0 auto !important;
 }
 
 .sharecont {
-    height: 250px !important;
-    background-color: rgb(255, 255, 255) !important;
-    border: 1px solid #94929286 !important;
-    font-size: 40px !important;
-    margin-top: 40px !important;
-    color:darkgoldenrod !important;
+  height: 250px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border: 1px solid #94929286 !important;
+  font-size: 40px !important;
+  margin-top: 40px !important;
+  color: darkgoldenrod !important;
+}
+
+.shareContainer {
+  background-color: #efeeee !important;
 }
 
 .cb {
-    padding: 0 !important}
-
-.cardStyle{
-    padding: 15% 0 !important;
-    font: 1.8rem Acme;
-    font-style: italic !important;
-    text-shadow: rgb(10, 22, 75) 0px 0px 12px;
-    width: 550px !important;
-    height: 50px !important;
-    text-align: justify !important;
-    text-transform: capitalize !important;
-
+  padding: 0 !important;
 }
 
-.cardTextC{
-    margin: 0 !important;
+.cardStyle {
+  padding: 20% 0 !important;
+  font: 3rem Acme;
+  font-style: italic !important;
+  text-shadow: rgb(10, 22, 75) 0px 0px 12px;
+  width: 550px !important;
+  height: 50px !important;
+  text-align: center !important;
+  text-transform: capitalize !important;
 }
 
-.shareButton{
-    width: 100px !important;
-    height: 35px !important;
+.cardTextC {
+  margin: 0 !important;
 }
 
-.overlay{
-    height: 50px !important;
+.shareButton {
+  width: 100px !important;
+  height: 35px !important;
+}
+
+.overlay {
+  height: 50px !important;
 }
 
 .footer,
 .card {
-    border: 0 !important;
+  border: 0 !important;
 }
 
 .footer {
-    background-color: #f1f2f3 !important;
-    border-radius: 5px !important;
+  background-color: #f1f2f3 !important;
+  border-radius: 5px !important;
 }
 
-@media (max-width: 575.98px) { 
+@media (max-width: 769.98px) {
+
     .imgCard {
-        height: 311px !important;
+        height: auto !important;
+      }
+
+    .holder {
+        width: 100% !important;
+      }
+
+    .cardStyle {
+      font-size: 1.8em !important;
+      padding: 20% 0 !important;
     }
- }
+
+  }
+
+@media (max-width: 500.98px) {
+  .imgCard {
+    height: auto !important;
+  }
+  .holder {
+    width: 100% !important;
+  }
+
+  .cardStyle {
+    font-size: 1.3em !important;
+    padding: 5% 0 !important;
+  }
+
+  .shareContainer {
+    background-color: white !important;
+  }
+
+  .navBarCp {
+    background-color: #efeeee !important;
+    justify-content: start !important;
+    border: none !important;
+  }
+}
 
 
-@media (max-width: 775.98px) {
-    .cardStyle{
-        font: 1.5rem Acme;
-    }
- }
+
+/* container className added - className="shareContainer mt-5 ml-auto mr-auto"> 
+  navBarCp <Navbar className="navBarCp d-flex justify-content-end"
+  
+  .navBarCp {
+  justify-content: start !important;
+  border-bottom-style: dotted !important;
+  border-bottom-style: dotted !important;
+  border-width: 1px !important;
+
+}*/

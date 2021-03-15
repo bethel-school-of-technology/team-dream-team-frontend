@@ -15,8 +15,9 @@
 }
 
 .galleryBody {
-    padding: 3% 25px;
-    font: 3rem Acme !important;
+    padding: 3% 5px;
+    font: 1.8rem Acme !important;
+    font-style: italic !important;
     text-shadow: black 2px 2px 8px; 
 }
 

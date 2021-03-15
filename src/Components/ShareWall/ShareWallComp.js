@@ -31,11 +31,11 @@ const ShareWallComp = () => {
 
   return (
     <div className="getcross">
-      <Container className=" mt-5 ml-auto mr-auto">
+      <Container className="shareContainer mt-5 ml-auto mr-auto">
         <div className="mt-4">
           <Navcp />
         </div>
-        <h1 className="text-center">
+        <h1 className="text-center mt-2">
           ShareVerse
           <span className="text-success"> Wall</span>
         </h1>
