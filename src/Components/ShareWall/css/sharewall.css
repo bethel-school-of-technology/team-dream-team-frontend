@@ -73,7 +73,7 @@
   border-radius: 5px !important;
 }
 
-@media (max-width: 769.98px) {
+@media (max-width: 765.98px) {
 
     .imgCard {
         height: auto !important;
@@ -99,7 +99,7 @@
   }
 
   .cardStyle {
-    font-size: 1.3em !important;
+    font-size: 1.8em !important;
     padding: 5% 0 !important;
   }
 

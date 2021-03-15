@@ -14,21 +14,39 @@
     width: 150px !important;
 }
 
+.inputField {
+    max-width: 612px !important;
+    margin: 0 auto !important;
+}
+
+.imgCard {
+    height: 911px !important;
+  }
+  
+
 .galleryBody {
     padding: 3% 5px;
-    font: 1.8rem Acme !important;
+    font: 3rem Acme !important;
     font-style: italic !important;
     text-shadow: black 2px 2px 8px; 
 }
 
-@media (min-width: 555.98px) {
-    .galleryBody{
-        font: 1.5rem Acme !important;
+@media (max-width: 769.98px) {
+    .galleryBody {
+        font: 2.4rem Acme !important;    
+        font-style: italic !important;
+        padding: 0 2% !important;
     }
- }
+  }
 
- @media (min-width: 755.98px) {
-    .galleryBody{
-        font: 2rem Acme !important;
+@media (max-width: 500.98px) {
+    .galleryBody {
+        font: 2.1rem Acme !important;
+        font-style: italic !important;
+        padding: 0 2% !important;
     }
- }
+
+    .holder {
+        width: 100% !important;
+      }
+}

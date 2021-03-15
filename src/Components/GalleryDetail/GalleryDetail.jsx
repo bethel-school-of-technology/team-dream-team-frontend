@@ -74,7 +74,7 @@ const GalleryDetail = () => {
         </h1>
         <Form className="shadow p-3 mb-5 bg-white rounded">
           <Form.Group controlId="formBasicVerse">
-            <Form.Label>
+            <Form.Label className="d-flex justify-content-center">
               <Card.Text className="text-muted">
                 Write your bible verse here and let your creativity flow!
               </Card.Text>
@@ -86,7 +86,7 @@ const GalleryDetail = () => {
               inputType={"text"}
             />
           </Form.Group>
-          <div className="shadow p-3 mb-5 bg-white rounded">
+          <div className="holder shadow p-3 mb-5 bg-white rounded">
             <Card className="bg-dark shadow text-white">
               {<Image src={urlData.url} alt="Card image" />}
               <Card.ImgOverlay>
