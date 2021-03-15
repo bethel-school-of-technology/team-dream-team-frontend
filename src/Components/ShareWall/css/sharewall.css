@@ -112,6 +112,10 @@
     justify-content: start !important;
     border: none !important;
   }
+
+  .titleStyle{
+      font-size: 1.7rem !important;
+  }
 }
 
 
