@@ -44,17 +44,17 @@ const Gallery = () => {
 
   return (
     <div className="postverse">
-      <Container className="mt-5 ml-auto mr-auto">
+      <Container className="shareContainer mt-5 ml-auto mr-auto">
         <div className="mb-4 mt-4">
           <Navcp />
         </div>
         <div></div>
-        <h1 className=" titleStyle text-center">
+        <h1 className="titleStyle text-center">
           ShareVerse
           <span className="text-success"> Gallery</span>
         </h1>
         <div>
-          <Col className="mb-12" xs="12" lg="12">
+          <Col className=" holder mb-12" xs="12" lg="12">
             {url.map((urlData) => (
               <Nav.Link
                 onClick={() =>
