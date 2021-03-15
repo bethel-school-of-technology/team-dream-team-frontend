@@ -75,7 +75,7 @@ class GlobalPost extends Component {
           </div>
           <Row className="d-flex justify-content-center ">
             <Col>
-              <div className="d-flex justify-content-center ml-3 mt-4 mb-3">
+              <div className="d-flex justify-content-center mt-4 mb-3">
                 <Form.Control
                   className="uploadBtn"
                   type="file"
@@ -89,14 +89,9 @@ class GlobalPost extends Component {
                 </Button>
               </div>
             </Col>
-
-            <div className="file-path-wrapper">
-              {/* <input className="file-path validate" type="text" /> */}
-            </div>
           </Row>
-
-          <img
-            className="defImg"
+          <img 
+            className="defImg col-sm-12 justify-content-center img-fluid"
             src={this.state.url || DefaultImage}
             alt="Uploaded Images"
             height="300"

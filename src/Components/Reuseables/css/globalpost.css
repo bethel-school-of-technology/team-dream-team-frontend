@@ -14,12 +14,8 @@
     background-color: rgb(2, 102, 2) !important;
 }
 
-.defImg {
-   width: 100% !important;
-   height: 500px !important;
-}
-
 #input#file-upload-button {
     background-color: none !important;
     width: 300px !important;
 }
+

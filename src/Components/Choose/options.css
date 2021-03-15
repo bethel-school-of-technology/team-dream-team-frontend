@@ -1,5 +1,9 @@
+.optionRow {
+    height: 20px !important;
+}
+
 .option_profileCard {
-    height: 200px;
+    height: 280px;
     margin-top: 200px;
 }
 
@@ -7,3 +11,21 @@
     margin-top: 30px !important;
     width: 250px !important;
 }
+
+@media (max-width: 575.98px) {
+    .textHeader {
+        font-size: 1.8rem !important;
+    }
+
+    .option_profileCard {
+        height: 250px;        
+    }
+
+    .optionRow {
+        height: 10px !important;
+    }
+
+ }
+
+
+
