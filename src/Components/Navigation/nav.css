@@ -23,6 +23,12 @@
   justify-content: start !important;
 }
 
+.navBarCp {
+  background-color: #efeeee !important;
+  justify-content: start !important;
+
+}
+
 .navbar-light .navbar-toggler {
   background-color: #dcd8d8 !important;
 }

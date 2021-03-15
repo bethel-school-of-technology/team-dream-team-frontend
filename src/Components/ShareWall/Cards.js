@@ -48,7 +48,7 @@ const Cards = () => {
           {posts.map((post) => (
             post.url && <div key={post._id}>
               <Card>
-                <Card.Img className="imgCard" alt="" src={post.url} />
+                <Card.Img className="imgCard d-flex align-items-center" alt="" src={post.url} />
                 <Card.ImgOverlay className="overlay">
                   <Card.Title className="d-flex justify-content-center align-items-center">
                     <Card.Text className="cardStyle text-light">

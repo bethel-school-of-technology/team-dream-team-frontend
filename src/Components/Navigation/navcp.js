@@ -13,7 +13,7 @@ const Navi = () => {
     return (
       <div>
         <Container className="ml-auto mr-auto">
-          <Navbar className="navBar d-flex justify-content-end" expand="lg">
+          <Navbar className="navBarCp d-flex justify-content-end" expand="lg">
             <Navbar.Brand href="/home"></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Col>

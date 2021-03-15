@@ -49,7 +49,7 @@ const Gallery = () => {
           <Navcp />
         </div>
         <div></div>
-        <h1 className="text-center">
+        <h1 className=" titleStyle text-center">
           ShareVerse
           <span className="text-success"> Gallery</span>
         </h1>
@@ -74,7 +74,7 @@ const Gallery = () => {
                 />
               </Nav.Link>
             ))}
-          </Col>{" "}
+          </Col>
         </div>
       </Container>
     </div>
