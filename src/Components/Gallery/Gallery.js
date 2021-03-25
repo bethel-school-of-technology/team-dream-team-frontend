@@ -16,7 +16,7 @@ const Gallery = () => {
 
   const loadImage = async () => {
     try {
-      let res = await axios.get("http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/geturls");
+      let res = await axios.get("http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/geturls");
       console.log(res.data);
       setUrl(res.data);
     } catch (error) {
@@ -80,6 +80,6 @@ const Gallery = () => {
     </div>
   );
 };
-
+//changed
 export default Gallery;
 

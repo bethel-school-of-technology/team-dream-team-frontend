@@ -15,17 +15,15 @@ class Login extends React.Component {
       email: "",
       password: "",
       formErrors: { password: "" },     
+      // the below props enable or disable the form submit button
       passwordValid: false,
       formValid: false,
     };
   }
-
-  // let history = useHistory();
-
+  
+  //checks for token, logs user out if none found
   componentDidMount() {
-    // console.log("use effect working!");
     if (!window.localStorage.getItem("token")) {
-      //redirect to login
       console.log("redirect to login");
       this.props.history.push("/");
     }
@@ -42,20 +40,24 @@ class Login extends React.Component {
       console.log(myDecodedToken);
     }
   }
-
+  
+  //handles input fields when there's a change in value & updates the state
   handleUserInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;    
+  // setState method takes a callback function as a 2nd argument, 
+  // to pass validation function to call it after user types in field
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
   };
 
- 
+  //defines validateField function
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let passwordValid = this.state.passwordValid;
 
+    //checks if there are more then 6 letters in pasword
     switch (fieldName) {
       case "password":
         passwordValid = value.length >= 6;
@@ -65,6 +67,7 @@ class Login extends React.Component {
         break;
     }
 
+    //calls setState to update the formErrors and the field validity 
     this.setState(
       {
         formErrors: fieldValidationErrors,
@@ -74,40 +77,36 @@ class Login extends React.Component {
     );
   }
 
+  //sets the value of validateForm function 
   validateForm() {
     this.setState({
       formValid: this.state.passwordValid,
     });
-    // this.handleSubmit()
   }
-
+  
+  //sets error message class
   errorClass(error) {
     return error.length === 0 ? "" : "has-error";
   }
 
-  //--------------handleSubmit function (submits states to backend)----------------
-
+  //sends login data to db via axios http request and "/" endpoint
   handleSubmit(e) {
     e.preventDefault();
-    
     console.log(this.state);
-
     axios
       .post(
-        "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/",
+        "http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/",
         {
           email: this.state.email,
           password: this.state.password,
         }
-        // { withCredentials: true }
       )
       .then((res) => {
         console.log(res);
-        // console.log(res.data.status);
         var resStatus = res.data.status;
+        //checks if login was successfull and return token, or prevents access
         if (resStatus === 200) {
         window.localStorage.setItem("token", res.data.token);
-        // return <Redirect to="/home" />;
         this.props.history.push("/createbio");
         } else {
           alert("Your Password or Username is incorrect!");
@@ -129,9 +128,11 @@ class Login extends React.Component {
           <Form
             className="shadow p-3 mb-5 bg-white rounded"
             id="signup-form"
+            //calls function to post login data to database
             onSubmit={this.handleSubmit.bind(this)}
             method="POST"
           >
+            {/* displays error if any exsist  */}
             <FormErrors formErrors={this.state.formErrors} />
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email:</Form.Label>
@@ -164,6 +165,7 @@ class Login extends React.Component {
               variant="secondary"
               type="submit"
               className="submitBtn"
+              //disables button if error exsists
               disabled={!this.state.formValid}
             >
               Submit
@@ -180,9 +182,9 @@ class Login extends React.Component {
       </div>
     );
   }
+   //sets value of name and value
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 }
-
 export default Login;

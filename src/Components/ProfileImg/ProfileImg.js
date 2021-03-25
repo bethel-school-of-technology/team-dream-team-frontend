@@ -21,6 +21,7 @@ class ProfileImg extends React.Component {
     };
   }
 
+  //checks if image does not exsist, and creates image 
   handleChange = (e) => {
     if (e.target.files[0]) {
       const image = e.target.files[0];
@@ -28,24 +29,24 @@ class ProfileImg extends React.Component {
     }
   };
 
+  //uploads the image 
   handleUpload = () => {
     const { image } = this.state;
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        // progress function ...
+        // checks progress of image upload status 
         const progress = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
         this.setState({ progress });
       },
       (error) => {
-        // Error function ...
         console.log(error);
       },
       () => {
-        // complete function ...
+        //storge where image is uploaded to
         storage
           .ref("images")
           .child(image.name)
@@ -57,9 +58,9 @@ class ProfileImg extends React.Component {
     );
   };
 
+  //checks for token, logs user out if none found
   componentDidMount() {
     if (!window.localStorage.getItem("token")) {
-      //redirect to Login
       console.log("redirect to login");
       this.props.history.push("/");
     }
@@ -69,11 +70,10 @@ class ProfileImg extends React.Component {
         "Authorization"
       ] = window.localStorage.getItem("token");
       axios
-        .post("http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/profile_img")
+        .post("http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/profile_img")
         .then((res) => {
           console.log();
           if (!res.data.status === "Login was successful" && 200) {
-            //window.location.href = window.location.toString() + "/home";
             console.log("redirct to login");
             this.props.history.push("/profile_img");
           }
@@ -94,6 +94,7 @@ class ProfileImg extends React.Component {
           </h1>
           <Form>
             <div className="d-flex justify-content-center">
+              {/* sets status in progress bar */}
               <progress
                 value={this.state.progress}
                 className="statusBar progress row"
@@ -112,6 +113,7 @@ class ProfileImg extends React.Component {
             </Row>
             <img
               className="pfdefImg"
+              // replaces default image with uploaded image
               src={this.state.url || DefaultImage}
               alt="Uploaded Images"
             />
@@ -130,5 +132,4 @@ class ProfileImg extends React.Component {
     );
   }
 }
-
 export default ProfileImg;

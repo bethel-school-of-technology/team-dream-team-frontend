@@ -10,14 +10,16 @@ import "./CreateBio.css";
 import axios from "axios";
 
 const CreateBio = () => {
+  //consts are created for useState functions
   const [ userBio, setUserBio ] = useState("");
   const history = useHistory();
-
+  
+  //sends bio data to db via axios http request and createbo endpoint
   function bioCreateHandler(e) {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/createbio",
+      url: "http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/createbio",
       data: {
         userBio: userBio
       },
@@ -27,6 +29,7 @@ const CreateBio = () => {
     });
   }
 
+  //checks for token, logs user out if none found
   useEffect(() => {
     if (!window.localStorage.getItem("token")) {
       console.log("redirect to login");
@@ -94,5 +97,5 @@ const CreateBio = () => {
     );
   }
 
-
+//changed
 export default CreateBio;

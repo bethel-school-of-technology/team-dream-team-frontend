@@ -12,7 +12,7 @@ const Cards = () => {
 
   const loadPosts = async () => {
     try {
-      let res = await axios.get(`http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/getall`);
+      let res = await axios.get(`http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/getall`);
       setPosts(res.data.reverse());
     } catch (error) {
       console.log(error);
@@ -23,7 +23,7 @@ const Cards = () => {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/savecomment",
+      url: "http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/savecomment",
       data: {
         _id: _id,
         comment: comment,
@@ -84,5 +84,5 @@ const Cards = () => {
     </div>
   );
 };
-
+//changed
 export default Cards;
