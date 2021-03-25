@@ -187,5 +187,4 @@ class Login extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 }
-//changed
 export default Login;

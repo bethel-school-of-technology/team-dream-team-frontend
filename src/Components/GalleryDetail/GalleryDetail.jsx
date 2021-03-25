@@ -113,5 +113,4 @@ const GalleryDetail = () => {
     </div>
   );
 };
-//changed
 export default GalleryDetail;
