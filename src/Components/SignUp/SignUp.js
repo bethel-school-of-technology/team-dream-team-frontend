@@ -15,7 +15,9 @@ class Signup extends React.Component {
       email: "",
       firstName: "",
       lastName: "",
+      //object with input field names as keys and validation errors as their values
       formErrors: { email: "", password: "", firstName: "", lastName: "" },
+      // the below props enable or disable the form submit button
       firstNameValid: false,
       emailValid: false,
       passwordValid: false,
@@ -23,14 +25,18 @@ class Signup extends React.Component {
     };
   }
 
+  //handles input fields when there's a change in value & updates the state
   handleUserInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+  // setState method takes a callback function as a 2nd argument, 
+  // to pass validation function to call it after user types in field
     this.setState({ [name]: value }, () => {
       this.validateField(name, value);
     });
   };
-
+  
+  //defines validateField function
   validateField(fieldName, value) {
     let fieldValidationErrors = this.state.formErrors;
     let firstNameValid = this.state.firstNameValid;
@@ -47,10 +53,12 @@ class Signup extends React.Component {
         lastNameValid = value.length >= 3 && value.match(/^[A-Za-z]+$/);
         fieldValidationErrors.lastName = lastNameValid ? "" : " is invalid!";
         break;
+      //checks against regular expression to verify email format
       case "email":
         emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         fieldValidationErrors.email = emailValid ? "" : " is invalid!";
         break;
+      //checks if there are more then 6 letters in pasword
       case "password":
         passwordValid = value.length >= 6;
         fieldValidationErrors.password = passwordValid ? "" : " is too short!";
@@ -59,6 +67,7 @@ class Signup extends React.Component {
         break;
     }
 
+    //calls setState to update the formErrors and the field validity 
     this.setState(
       {
         formErrors: fieldValidationErrors,
@@ -71,6 +80,7 @@ class Signup extends React.Component {
     );
   }
 
+  //sets the value of validateForm function 
   validateForm() {
     this.setState({
       formValid:
@@ -80,17 +90,18 @@ class Signup extends React.Component {
         this.state.lastNameValid,
     });
   }
-
+  
+  //sets error message class
   errorClass(error) {
     return error.length === 0 ? "" : "has-error";
   }
-
+  
+  //sends signup data to db via axios http request and reister endpoint
   handleSubmit(e) {
     e.preventDefault();
-
     axios({
       method: "POST",
-      url: "http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/register",
+      url: "http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/register",
       data: this.state,
     }).then((response) => {
       console.log(response.data);
@@ -113,13 +124,16 @@ class Signup extends React.Component {
           </Form.Text>
           <Form
             id="signup-form"
+            //calls function to post signup data to database
             onSubmit={this.handleSubmit.bind(this)}
             method="POST"
           >
             <div className="panel panel-default">
+              {/* displays error if any exsist  */}
               <FormErrors formErrors={this.state.formErrors} />
             </div>
             <Form.Group>
+              {/* hightlights error */}
               <div className={this.errorClass(this.state.formErrors.firstName)}>
                 <Form.Label>First Name</Form.Label>
                 <Form.Control
@@ -179,6 +193,7 @@ class Signup extends React.Component {
                 variant="primary"
                 type="submit"
                 className="signupSubmitBtn"
+                //disables button if error exsists
                 disabled={!this.state.formValid}
               >
                 Create Account
@@ -198,6 +213,7 @@ class Signup extends React.Component {
       </div>
     );
   }
+  //sets value of name and value
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };

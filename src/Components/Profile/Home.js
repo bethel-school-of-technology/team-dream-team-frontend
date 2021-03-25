@@ -15,13 +15,13 @@ import axios from "axios";
 const Home = () => {
   const [userBio, setBio] = useState([]);
   const [url, setUrl] = useState([]);
-  const [id, setId] = useState("");
+  // const [id, setId] = useState("");
   const history = useHistory();
 
   const loadBio = async () => {
     try {
       let res = await axios.get(
-        `http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/displaybio/60486cc949884b1fcc403f3e`
+        `http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/displaybio/60486cc949884b1fcc403f3e`
       );
       setBio(res.data.data.userBio);
       console.log(res);
@@ -32,7 +32,7 @@ const Home = () => {
 
   const loadProfilePic = async () => {
     try {
-      let res = await axios.get(`http://ec2-18-208-220-147.compute-1.amazonaws.com:8080/geturls`);
+      let res = await axios.get(`http://ec2-34-229-191-194.compute-1.amazonaws.com:8080/geturls`);
       setUrl(res.data.map((d) => d.url));
       console.log(res);
     } catch (err) {
