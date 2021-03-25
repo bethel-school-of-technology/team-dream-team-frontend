@@ -132,5 +132,5 @@ class ProfileImg extends React.Component {
     );
   }
 }
-
+//changed
 export default ProfileImg;

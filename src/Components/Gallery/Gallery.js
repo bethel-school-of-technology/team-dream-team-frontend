@@ -80,6 +80,6 @@ const Gallery = () => {
     </div>
   );
 };
-
+//changed
 export default Gallery;
 
